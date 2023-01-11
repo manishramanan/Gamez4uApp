@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignupScreen extends StatefulWidget {
+  const SignupScreen({super.key});
 
   @override
-  LoginScreenState createState() => LoginScreenState();
+  SignupScreenState createState() => SignupScreenState();
 }
 
-class LoginScreenState extends State<LoginScreen> {
+class SignupScreenState extends State<SignupScreen> {
   final formKey = GlobalKey<FormState>();
   String? email;
   String? password;
@@ -27,9 +27,7 @@ class LoginScreenState extends State<LoginScreen> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/loginpic.jpg'),
-            //image: AssetImage('images/facebookpic.png'),
-
+            image: AssetImage('images/signuppic.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -51,7 +49,7 @@ class LoginScreenState extends State<LoginScreen> {
                 bottom: 20,
               ),
               child: Text(
-                'LOGIN',
+                'SIGNUP',
                 style: TextStyle(
                   fontWeight: FontWeight.w500,
                   fontSize: 27,
@@ -68,9 +66,9 @@ class LoginScreenState extends State<LoginScreen> {
                   //mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Padding(
-                      padding: EdgeInsets.only(right: 20.0),
+                      padding: EdgeInsets.only(right: 90.0),
                       child: Text(
-                        'Username , Email or Phone',
+                        'Email or Phone',
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.white,
@@ -101,7 +99,7 @@ class LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(right: 135.0, top: 25),
+                      padding: EdgeInsets.only(right: 130.0, top: 25),
                       child: Text(
                         'Password',
                         style: TextStyle(
@@ -160,8 +158,8 @@ class LoginScreenState extends State<LoginScreen> {
                     ),
                     const SizedBox(height: 18.0),
                     Container(
-                      width: 100.0,
-                      height: 35.0,
+                      width: 105.0,
+                      height: 40.0,
                       decoration: const BoxDecoration(
                         shape: BoxShape.rectangle,
                         color: Colors.white,
@@ -175,65 +173,38 @@ class LoginScreenState extends State<LoginScreen> {
                             style: TextStyle(
                               color: Colors.black,
                               fontWeight: FontWeight.w700,
-                              fontSize: 18,
+                              fontSize: 19,
                             ),
                           ),
                         ),
                       ),
                     ),
                     const Padding(
-                      padding: EdgeInsets.only(top: 20),
+                      padding: EdgeInsets.only(top: 55, bottom: 5),
                       child: TextButton(
                         onPressed: null,
                         child: Text(
-                          'Forgot Password',
+                          'Signup with Mobile number ',
                           style: TextStyle(
                             color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 17,
+                            fontSize: 15,
                           ),
                         ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
-                        Padding(
-                          padding: EdgeInsets.only(top: 25),
-                          child: Text(
-                            "Don't have an account.",
-                            style: TextStyle(
-                              height: 0,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w400,
-                              fontSize: 15,
-                            ),
-                          ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 9, bottom: 12),
+                      child: Text(
+                        'OR',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
                         ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Text(
-                            " SignUp ",
-                            style: TextStyle(
-                              // height: 3,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 16,
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 20),
-                          child: Icon(
-                            Icons.person_add,
-                            size: 18,
-                            color: Colors.white,
-                          ),
-                        ),
-                      ],
+                      ),
                     ),
                     Padding(
-                      padding: const EdgeInsets.only(top: 100),
+                      padding: const EdgeInsets.only(),
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -242,32 +213,20 @@ class LoginScreenState extends State<LoginScreen> {
                             child: TextButton(
                               onPressed: null,
                               child: Image.asset(
+                                'images/googlepic.png',
+                                height: 50,
+                                width: 30,
+                              ),
+                            ),
+                          ),
+                          Expanded(
+                            flex: 0,
+                            child: TextButton(
+                              onPressed: null,
+                              child: Image.asset(
                                 'images/facebookpic.png',
-                                height: 25,
-                                width: 25,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 0,
-                            child: TextButton(
-                              onPressed: null,
-                              child: Image.asset(
-                                'images/twitterpic.png',
-                                height: 25,
-                                width: 25,
-                              ),
-                            ),
-                          ),
-                          Expanded(
-                            flex: 0,
-                            child: TextButton(
-                              onPressed: null,
-                              child: Image.asset(
-                                'images/ytpic.png',
-                                height: 25,
-                                width: 25,
-                                alignment: Alignment.center,
+                                height: 30,
+                                width: 30,
                               ),
                             ),
                           ),
@@ -277,7 +236,7 @@ class LoginScreenState extends State<LoginScreen> {
                   ],
                 ),
               ),
-            ),
+            )
           ],
         ),
       ),

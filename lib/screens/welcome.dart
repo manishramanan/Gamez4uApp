@@ -25,7 +25,8 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("images/logo.jpg"), fit: BoxFit.cover),
+            image: AssetImage("images/logo.jpg"),
+             fit: BoxFit.cover),
       ),
       alignment: Alignment.center,
       child: Column(
