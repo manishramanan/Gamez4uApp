@@ -87,15 +87,17 @@ class SignupScreenState extends State<SignupScreen> {
                       ),
                       child: const TextField(
                         decoration: InputDecoration(
-                          labelText: '',
-
+                          labelText: '',   
+                                            
                           prefixIcon: Icon(
                             Icons.person,
                             color: Colors.black,
                           ),
                           border: InputBorder.none,
+                          
                           // hintText: 'Enter your email',
                         ),
+                        
                       ),
                     ),
                     const Padding(
