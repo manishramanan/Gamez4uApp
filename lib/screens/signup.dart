@@ -3,7 +3,7 @@ import 'dart:convert' as convert;
 
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/login.dart';
-import 'package:games4u/screens/phone_verification.dart';
+import 'package:games4u/screens/signup_phone.dart';
 import 'package:http/http.dart' as http;
 
 Future<User> fetchUser(int id) async {
@@ -353,7 +353,7 @@ class SignupScreenState extends State<SignupScreen> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) =>
-                                    const VerifyPhoneScreen()));
+                                    const SignupPhoneScreen()));
                       }),
                       child: const Text(
                         'Signup with Mobile number ',

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/phone_verification.dart';
+import 'package:games4u/screens/Forgotpass.dart';
+import 'package:games4u/screens/homepage.dart';
+import 'package:games4u/screens/login_phone.dart';
 import 'package:games4u/screens/signup.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -20,12 +22,6 @@ class LoginScreenState extends State<LoginScreen> {
   bool isButtonEnabled = false;
   bool isPasswordValid = false;
   bool isEmailValid = false;
-
-  // @override
-  // void dispose() {
-  //   textFieldController.dispose();
-  //   super.dispose();
-  // }
 
   @override
   void initState() {
@@ -55,7 +51,7 @@ class LoginScreenState extends State<LoginScreen> {
 
   void _submit() {
     Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const SignupScreen()));
+        context, MaterialPageRoute(builder: (context) => const HomepageScreen()));
   }
 
   @override
@@ -99,7 +95,6 @@ class LoginScreenState extends State<LoginScreen> {
               child: Container(
                 margin: const EdgeInsets.all(16.0),
                 child: Column(
-                  //mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Padding(
                       padding: EdgeInsets.only(right: 75, top: 10),
@@ -185,7 +180,6 @@ class LoginScreenState extends State<LoginScreen> {
                             alignLabelWithHint: false,
                             filled: true,
                             border: InputBorder.none,
-                            // hintText: 'Enter your email',
                           ),
                           keyboardType: TextInputType.visiblePassword,
                           textInputAction: TextInputAction.done,
@@ -197,27 +191,6 @@ class LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    // Padding(
-                    //   padding: const EdgeInsets.only(right: 5),
-                    //   child: Row(
-                    //     children: const [
-                    //       SizedBox(
-                    //         width: 75,
-                    //       ),
-                    //       Checkbox(
-                    //         value: false,
-                    //         onChanged: null,
-                    //       ),
-                    //       Text(
-                    //         'Remember me?',
-                    //         style: TextStyle(
-                    //           color: Colors.white,
-                    //           fontWeight: FontWeight.w500,
-                    //         ),
-                    //       ),
-                    //     ],
-                    //   ),
-                    // ),
                     const SizedBox(height: 16.0),
                     Padding(
                       padding: const EdgeInsets.only(top: 20),
@@ -238,28 +211,6 @@ class LoginScreenState extends State<LoginScreen> {
                         ),
                       ),
                     ),
-                    // Container(
-                    //   width: 100.0,
-                    //   height: 35.0,
-                    //   decoration: const BoxDecoration(
-                    //     shape: BoxShape.rectangle,
-                    //     color: Colors.white,
-                    //     borderRadius: BorderRadius.all(Radius.circular(20.0)),
-                    //   ),
-                    //   child: const Center(
-                    //     child: TextButton(
-                    //       onPressed: null,
-                    //       child: Text(
-                    //         'SUBMIT',
-                    //         style: TextStyle(
-                    //           color: Colors.black,
-                    //           fontWeight: FontWeight.w700,
-                    //           fontSize: 18,
-                    //         ),
-                    //       ),
-                    //     ),
-                    //   ),
-                    // ),
                     Padding(
                       padding: const EdgeInsets.only(top: 20),
                       child: TextButton(
@@ -267,7 +218,8 @@ class LoginScreenState extends State<LoginScreen> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const SignupScreen()));
+                                  builder: (context) =>
+                                      const ForgotpassScreen()));
                         }),
                         child: const Text(
                           'Forgot Password',
@@ -316,14 +268,6 @@ class LoginScreenState extends State<LoginScreen> {
                             ),
                           ),
                         ),
-                        // const Padding(
-                        //   padding: EdgeInsets.only(top: 10),
-                        //   child: Icon(
-                        //     Icons.person_add,
-                        //     size: 17,
-                        //     color: Colors.white,
-                        //   ),
-                        // ),
                       ],
                     ),
                     Padding(
@@ -334,7 +278,7 @@ class LoginScreenState extends State<LoginScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) =>
-                                      const VerifyPhoneScreen()));
+                                      const LoginPhoneScreen()));
                         }),
                         child: const Text(
                           'SignUp with Phone Number',
@@ -384,18 +328,6 @@ class LoginScreenState extends State<LoginScreen> {
                               ),
                             ),
                           ),
-                          // Expanded(
-                          //   flex: 0,
-                          //   child: TextButton(
-                          //     onPressed: null,
-                          //     child: Image.asset(
-                          //       'images/ytpic.png',
-                          //       height: 25,
-                          //       width: 25,
-                          //       alignment: Alignment.center,
-                          //     ),
-                          //   ),
-                          // ),
                         ],
                       ),
                     ),
