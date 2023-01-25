@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:games4u/screens/login.dart';
- import 'package:games4u/screens/signup.dart';
+import 'package:games4u/screens/login.dart';
+import 'package:games4u/screens/signup.dart';
 // import 'package:games4u/screens/mainscreen.dart';
 // import 'package:games4u/screens/welcome.dart';
 // import 'package:games4u/screens/login_update.dart';
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: SignupScreen(),
+      home: LoginScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
