@@ -3,6 +3,7 @@ import 'dart:convert' as convert;
 
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/login.dart';
+import 'package:games4u/screens/signup_phone.dart';
 import 'package:http/http.dart' as http;
 
 Future<User> fetchUser(int id) async {
@@ -116,8 +117,6 @@ class SignupScreenState extends State<SignupScreen> {
     }
   }
 
-
-
   void _register() {
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => const LoginScreen()));
@@ -148,8 +147,7 @@ class SignupScreenState extends State<SignupScreen> {
           leading: IconButton(
             iconSize: 25,
             icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-            },
+            onPressed: (() => Navigator.pop(context)),
           ),
         ),
         const Padding(
@@ -201,7 +199,8 @@ class SignupScreenState extends State<SignupScreen> {
                         controller: emailController,
                         style: const TextStyle(
                           fontSize: 18,
-                        ),                   
+                          fontWeight: FontWeight.w500,
+                        ),
                         decoration: const InputDecoration(
                           prefixIcon: Icon(
                             Icons.person,
@@ -222,6 +221,7 @@ class SignupScreenState extends State<SignupScreen> {
                       style: TextStyle(
                         fontSize: 17,
                         color: Colors.white,
+                        fontWeight: FontWeight.w400,
                         height: 2,
                       ),
                     ),
@@ -242,7 +242,7 @@ class SignupScreenState extends State<SignupScreen> {
                         ),
                         obscureText: passwordVisible,
                         decoration: InputDecoration(
-                          border: InputBorder.none,                        
+                          border: InputBorder.none,
                           prefixIcon: const Icon(
                             Icons.key,
                             color: Colors.black,
@@ -262,7 +262,6 @@ class SignupScreenState extends State<SignupScreen> {
                               );
                             },
                           ),
-
                           alignLabelWithHint: false,
                           filled: true,
                         ),
@@ -282,12 +281,11 @@ class SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                   ),
-                  const SizedBox(height: 18.0),              
+                  const SizedBox(height: 18.0),
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
-                    child: ElevatedButton(                     
+                    child: ElevatedButton(
                       onPressed: isButtonEnabled ? _register : null,
-
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(100, 50),
                         backgroundColor:
@@ -302,12 +300,62 @@ class SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                   ),
-
-                  const Padding(
-                    padding: EdgeInsets.only(top: 65, bottom: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Padding(
+                        padding: EdgeInsets.only(top: 20, left: 10),
+                        child: Text(
+                          "Have an account ?",
+                          style: TextStyle(
+                            height: 0,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 15,
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 12),
+                        child: TextButton(
+                          onPressed: (() {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => const LoginScreen()));
+                          }),
+                          child: const Text(
+                            'LogIn',
+                            style: TextStyle(
+                              // height: 3,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
+                              fontSize: 18,
+                            ),
+                          ),
+                        ),
+                      ),
+                      // const Padding(
+                      //   padding: EdgeInsets.only(top: 10),
+                      //   child: Icon(
+                      //     Icons.person_add,
+                      //     size: 17,
+                      //     color: Colors.white,
+                      //   ),
+                      // ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 30, bottom: 5),
                     child: TextButton(
-                      onPressed: null,
-                      child: Text(
+                      onPressed: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const SignupPhoneScreen()));
+                      }),
+                      child: const Text(
                         'Signup with Mobile number ',
                         style: TextStyle(
                           color: Colors.white,
@@ -333,14 +381,17 @@ class SignupScreenState extends State<SignupScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Expanded(
-                          flex: 0,
-                          child: TextButton(
-                            onPressed: null,
-                            child: Image.asset(
-                              'images/googlepic.png',
-                              height: 50,
-                              width: 30,
+                        Padding(
+                          padding: const EdgeInsets.only(top: 4),
+                          child: Expanded(
+                            flex: 0,
+                            child: TextButton(
+                              onPressed: null,
+                              child: Image.asset(
+                                'images/googlepic.png',
+                                height: 29,
+                                width: 30,
+                              ),
                             ),
                           ),
                         ),
@@ -350,7 +401,7 @@ class SignupScreenState extends State<SignupScreen> {
                             onPressed: null,
                             child: Image.asset(
                               'images/facebookpic.png',
-                              height: 30,
+                              height: 29,
                               width: 30,
                             ),
                           ),

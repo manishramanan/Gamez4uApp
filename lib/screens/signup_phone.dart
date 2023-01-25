@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:games4u/screens/signup.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
-class VerifyPhoneScreen extends StatelessWidget {
-  const VerifyPhoneScreen({super.key});
+class SignupPhoneScreen extends StatelessWidget {
+  const SignupPhoneScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,14 +14,11 @@ class VerifyPhoneScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.only(top: 40, right: 300),
             child: IconButton(
-              // alignment: const Alignment(),
-              iconSize: 30,
-              color: Colors.black,
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                // Navigate back to the previous page
-              },
-            ),
+                // alignment: const Alignment(),
+                iconSize: 30,
+                color: Colors.black,
+                icon: const Icon(Icons.arrow_back),
+                onPressed: (() => Navigator.pop(context))),
           ),
           Column(
             children: <Widget>[
@@ -90,10 +88,15 @@ class VerifyPhoneScreen extends StatelessWidget {
                     color: Colors.cyan,
                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
                   ),
-                  child: const Center(
+                  child: Center(
                     child: TextButton(
-                      onPressed: null,
-                      child: Text(
+                      onPressed: (() {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const SignupScreen()));
+                      }),
+                      child: const Text(
                         "Send OTP",
                         textAlign: TextAlign.center,
                         style: TextStyle(

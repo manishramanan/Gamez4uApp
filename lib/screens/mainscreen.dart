@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:games4u/screens/welcome.dart';
 
-class LogoScreen extends StatelessWidget {
+class LogoScreen extends StatefulWidget {
   const LogoScreen({super.key});
+
+  @override
+  // ignore: library_private_types_in_public_api
+  _LogoScreenState createState() => _LogoScreenState();
+}
+
+class _LogoScreenState extends State<LogoScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _navigateToNextPage();
+  }
+
+  void _navigateToNextPage() {
+    Future.delayed(const Duration(seconds: 2), () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +36,14 @@ class LogoScreen extends StatelessWidget {
           fit: BoxFit.cover,
         ),
       ),
-      child: Center(
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 0, top: 300),
         child: Container(
-          height: 180,
-          width: 180,
+          height: 100,
+          width: 100,
           decoration: const BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('images/logo123.png'),
+              image: AssetImage('images/logopic1.png'),
               fit: BoxFit.contain,
             ),
           ),

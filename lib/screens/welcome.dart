@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:games4u/screens/login.dart';
+import 'package:games4u/screens/signup.dart';
 //import 'package:games4u/logger.dart' as console;
 
-class LoginSignupWidget extends StatefulWidget {
-  const LoginSignupWidget({super.key});
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({super.key});
 
   @override
   // ignore: library_private_types_in_public_api
-  _LoginSignupWidgetState createState() => _LoginSignupWidgetState();
+  _WelcomeScreenState createState() => _WelcomeScreenState();
 }
 
-class _LoginSignupWidgetState extends State<LoginSignupWidget> {
+class _WelcomeScreenState extends State<WelcomeScreen> {
   @override
   Widget build(BuildContext context) {
     // final ButtonStyle style = ElevatedButton.styleFrom(
@@ -25,21 +27,23 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("images/logo.jpg"),
-             fit: BoxFit.cover),
+            image: AssetImage("images/logo.jpg"), fit: BoxFit.cover),
       ),
       alignment: Alignment.center,
       child: Column(
         children: <Widget>[
-          const Text(
-            'WELCOME',
-            style: TextStyle(
-              //fontWeight: FontWeight.normal,
-              fontSize: 25,
-              decoration: TextDecoration.none,
-              color: Colors.white,
-              height: 15,
-              fontFamily: 'Courier New',
+          const Padding(
+            padding: EdgeInsets.only(bottom: 250, top: 150),
+            child: Text(
+              'WELCOME',
+              style: TextStyle(
+                //fontWeight: FontWeight.normal,
+                fontSize: 25,
+                decoration: TextDecoration.none,
+                color: Colors.white,
+                //height: 15,
+                fontFamily: 'EB Garamond',
+              ),
             ),
           ),
           Container(
@@ -50,19 +54,25 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
             ),
-            child: const Center(
-              child: Text(
-                'LOGIN',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.black,
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
+            child: Center(
+                child: TextButton(
+                    onPressed: (() {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const LoginScreen()));
+                    }),
+                    child: const Text(
+                      'LOGIN',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
+                      ),
+                    ))),
           ),
           Container(
-            height: 30,
+            height: 40,
           ),
           Container(
             width: 260.0,
@@ -72,16 +82,22 @@ class _LoginSignupWidgetState extends State<LoginSignupWidget> {
               color: Colors.white,
               borderRadius: BorderRadius.all(Radius.circular(20.0)),
             ),
-            child: const Center(
-              child: Text(
-                'SIGNUP',
-                style: TextStyle(
-                  fontSize: 20.0,
-                  color: Colors.black,
-                  decoration: TextDecoration.none,
-                ),
-              ),
-            ),
+            child: Center(
+                child: TextButton(
+                    onPressed: (() {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignupScreen()));
+                    }),
+                    child: const Text(
+                      'SIGNUP',
+                      style: TextStyle(
+                        fontSize: 20.0,
+                        color: Colors.black,
+                        decoration: TextDecoration.none,
+                      ),
+                    ))),
           )
           // ElevatedButton(
           //   style: style,
