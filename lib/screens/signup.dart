@@ -1,76 +1,8 @@
-import 'dart:async' as asink;
-import 'dart:convert' as convert;
-
 import 'package:flutter/material.dart';
+import 'package:games4u/api_services/password_signup.dart';
+import 'package:games4u/model/UserLoginModel.dart';
 import 'package:games4u/screens/login.dart';
 import 'package:games4u/screens/signup_phone.dart';
-import 'package:http/http.dart' as http;
-
-Future<User> fetchUser(int id) async {
-  final String apiUri =
-      'Gamez-Recip-1NBGOKF2RPJ41-848395906.ap-south-1.elb.amazonaws.com/api/1/UserLogin/userlogin/$id';
-  final resp = await http.get(Uri.parse(apiUri));
-  if (resp.statusCode == 200) {
-    return User.fromJson(convert.jsonDecode(resp.body));
-  } else {
-    throw Exception('Failed to load user.');
-  }
-}
-
-Future<User> createUser(String email, String password) async {
-  const String apiUri =
-      'Gamez-Recip-1NBGOKF2RPJ41-848395906.ap-south-1.elb.amazonaws.com/api/1/UserLogin/adduserlogin';
-  final response = await http.post(
-    Uri.parse(
-      apiUri,
-    ),
-    headers: <String, String>{
-      'Content-Type': 'application/json; charset=UTF-8',
-      'x-authkey': 'uynjsykkloye679km@~556HHTrMolews',
-    },
-    body: convert.jsonEncode(<String, String>{
-      'email': email,
-      'userName': 'hello',
-      'password': password,
-      'token': 'qwerty123456',
-      'mobile': '9876543210'
-    }),
-  );
-  if (response.statusCode == 201) {
-    return User.fromJson(convert.jsonDecode(response.body));
-  } else {
-    throw Exception('Failed to create user.');
-  }
-}
-
-class User {
-  final int id;
-  final String email;
-  final String uesrName;
-  final String password;
-  final String mobile;
-  final String token;
-
-  const User({
-    required this.id,
-    required this.email,
-    required this.uesrName,
-    required this.password,
-    required this.mobile,
-    required this.token,
-  });
-
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
-      id: json['id'],
-      email: json['email'],
-      uesrName: json['userName'],
-      password: json['password'],
-      mobile: json['mobile'],
-      token: json['token'],
-    );
-  }
-}
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -89,7 +21,7 @@ class SignupScreenState extends State<SignupScreen> {
   bool isButtonEnabled = false;
   bool isPasswordValid = false;
   bool isEmailValid = false;
-  Future<User>? futureUser;
+  Future<UserLogin>? _futureUserSignup;
 
   @override
   void initState() {
@@ -134,7 +66,8 @@ class SignupScreenState extends State<SignupScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: (futureUser == null) ? buildColumn() : buildFutureBuilder(),
+        child:
+            (_futureUserSignup == null) ? buildColumn() : buildFutureBuilder(),
       ),
     );
   }
@@ -285,7 +218,17 @@ class SignupScreenState extends State<SignupScreen> {
                   Padding(
                     padding: const EdgeInsets.only(top: 20),
                     child: ElevatedButton(
-                      onPressed: isButtonEnabled ? _register : null,
+                      onPressed: () {
+                        setState(() {
+                          _futureUserSignup = createUserLogin(
+                              emailController.text,
+                              passwordController.text,
+                              null,
+                              null,
+                              null);
+                          isButtonEnabled ? _register : null;
+                        });
+                      },
                       style: ElevatedButton.styleFrom(
                         minimumSize: const Size(100, 50),
                         backgroundColor:
@@ -418,14 +361,14 @@ class SignupScreenState extends State<SignupScreen> {
     );
   }
 
-  FutureBuilder<User> buildFutureBuilder() {
-    return FutureBuilder<User>(
-      future: futureUser,
+  FutureBuilder<UserLogin> buildFutureBuilder() {
+    return FutureBuilder<UserLogin>(
+      future: _futureUserSignup,
       builder: (context, snapshot) {
         if (snapshot.hasData) {
           var info = snapshot.data!;
           return Text(
-            '${info.id}\n${info.email}\n${info.password}',
+            '${info.email}\n${info.password}',
             style: const TextStyle(
               decoration: TextDecoration.none,
               fontSize: 18,
