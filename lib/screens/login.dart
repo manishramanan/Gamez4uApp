@@ -50,8 +50,8 @@ class LoginScreenState extends State<LoginScreen> {
   }
 
   void _submit() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const HomepageScreen()));
+    Navigator.push(context,
+        MaterialPageRoute(builder: (context) => const HomepageScreen()));
   }
 
   @override
@@ -195,7 +195,11 @@ class LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 20),
                       child: ElevatedButton(
-                        onPressed: isButtonEnabled ? _submit : null,
+                        onPressed: () {
+                          setState(() {
+                            isButtonEnabled ? _submit : null;
+                          });
+                        },
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size(100, 50),
                           backgroundColor:
