@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/Forgotpass.dart';
-import 'package:games4u/screens/homepage.dart';
+
+import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/screens/login_phone.dart';
 import 'package:games4u/screens/signup.dart';
 
@@ -50,8 +51,8 @@ class LoginScreenState extends State<LoginScreen> {
   }
 
   void _submit() {
-    Navigator.push(context,
-        MaterialPageRoute(builder: (context) => const HomepageScreen()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => const HomeScreen()));
   }
 
   @override
@@ -77,7 +78,7 @@ class LoginScreenState extends State<LoginScreen> {
             ),
             const Padding(
               padding: EdgeInsets.only(
-                top: 34,
+                top: 25,
                 bottom: 20,
               ),
               child: Text(
@@ -195,11 +196,17 @@ class LoginScreenState extends State<LoginScreen> {
                     Padding(
                       padding: const EdgeInsets.only(top: 20),
                       child: ElevatedButton(
-                        onPressed: () {
+                        onPressed: (() {
                           setState(() {
                             isButtonEnabled ? _submit : null;
                           });
-                        },
+                          // Navigator.push(
+                          //   context,
+                          //   MaterialPageRoute(
+                          //     builder: (context) => const HomePageScreen(),
+                          //   ),
+                          // );
+                        }),
                         style: ElevatedButton.styleFrom(
                           minimumSize: const Size(100, 50),
                           backgroundColor:
