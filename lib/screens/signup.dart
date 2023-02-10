@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/api_services/password_signup.dart';
-import 'package:games4u/model/UserLoginModel.dart';
 import 'package:games4u/screens/login.dart';
 import 'package:games4u/screens/signup_phone.dart';
 
@@ -21,7 +19,6 @@ class SignupScreenState extends State<SignupScreen> {
   bool isButtonEnabled = false;
   bool isPasswordValid = false;
   bool isEmailValid = false;
-  Future<UserLogin>? _futureUserSignup;
 
   @override
   void initState() {
@@ -49,10 +46,10 @@ class SignupScreenState extends State<SignupScreen> {
     }
   }
 
-  void _register() {
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => const LoginScreen()));
-  }
+  // void _register() {
+  //   Navigator.push(
+  //       context, MaterialPageRoute(builder: (context) => const LoginScreen()));
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -62,323 +59,300 @@ class SignupScreenState extends State<SignupScreen> {
         width: double.infinity,
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('images/signuppic.jpg'),
+            image: AssetImage('images/signupbackgrd.png'),
             fit: BoxFit.cover,
           ),
         ),
-        child:
-            (_futureUserSignup == null) ? buildColumn() : buildFutureBuilder(),
-      ),
-    );
-  }
-
-  Column buildColumn() {
-    return Column(
-      children: <Widget>[
-        AppBar(
-          backgroundColor: Colors.transparent,
-          leading: IconButton(
-            iconSize: 25,
-            icon: const Icon(Icons.arrow_back),
-            onPressed: (() => Navigator.pop(context)),
-          ),
-        ),
-        const Padding(
-          padding: EdgeInsets.only(
-            top: 34,
-            bottom: 38,
-          ),
-          child: Text(
-            'SIGNUP',
-            style: TextStyle(
-              fontWeight: FontWeight.w500,
-              fontSize: 27,
-              color: Colors.white,
-              height: 3,
-            ),
-          ),
-        ),
-        Expanded(
-          flex: 0,
-          child: Container(
-            margin: const EdgeInsets.all(16.0),
-            child: Form(
-              key: _formKey,
-              child: Column(
-                children: [
-                  const Padding(
-                    padding: EdgeInsets.only(
-                      right: 152.0,
-                    ),
-                    child: Text(
-                      'Email',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                        height: 2,
-                      ),
-                    ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
+              AppBar(
+                elevation: 0,
+                backgroundColor: Colors.transparent,
+                leading: IconButton(
+                  iconSize: 25,
+                  icon: const Icon(Icons.arrow_back),
+                  onPressed: (() => Navigator.pop(context)),
+                ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(
+                  top: 5,
+                  bottom: 5,
+                ),
+                child: Text(
+                  'SIGNUP',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                    fontSize: 27,
+                    color: Colors.white,
+                    height: 3,
                   ),
-                  Container(
-                    width: 230,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(22.0)),
-                    ),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: TextFormField(
-                        controller: emailController,
-                        style: const TextStyle(
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        decoration: const InputDecoration(
-                          prefixIcon: Icon(
-                            Icons.person,
-                            color: Colors.black,
-                          ),
-                          border: InputBorder.none,
-                        ),
-                        onChanged: (value) => setState(() {
-                          isButtonEnabled = false;
-                        }),
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(right: 130.0, top: 20),
-                    child: Text(
-                      'Password',
-                      style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400,
-                        height: 2,
-                      ),
-                    ),
-                  ),
-                  Container(
-                    width: 230,
-                    decoration: const BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(Radius.circular(22.0)),
-                    ),
-                    child: Align(
-                      alignment: Alignment.topCenter,
-                      child: TextFormField(
-                        controller: passwordController,
-                        style: const TextStyle(
-                          fontSize: 18,
-                        ),
-                        obscureText: passwordVisible,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          prefixIcon: const Icon(
-                            Icons.key,
-                            color: Colors.black,
-                          ),
-                          suffixIcon: IconButton(
-                            color: Colors.black,
-                            icon: Icon(
-                              passwordVisible
-                                  ? Icons.visibility_off
-                                  : Icons.visibility,
-                            ),
-                            onPressed: () {
-                              setState(
-                                () {
-                                  passwordVisible = !passwordVisible;
-                                },
-                              );
-                            },
-                          ),
-                          alignLabelWithHint: false,
-                          filled: true,
-                        ),
-                        keyboardType: TextInputType.visiblePassword,
-                        textInputAction: TextInputAction.done,
-                        validator: (value) {
-                          if (!isPasswordValid == true) {
-                            const Text(
-                                "password should have at least one upper case, one special character and one digits");
-                          }
-                          return null;
-                        },
-                        onChanged: (value) => setState(() {
-                          isButtonEnabled =
-                              (isPasswordValid && isEmailValid) ? true : false;
-                        }),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(height: 18.0),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 20),
-                    child: ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          _futureUserSignup = createUserLogin(
-                              emailController.text,
-                              passwordController.text,
-                              null,
-                              null,
-                              null);
-                          isButtonEnabled ? _register : null;
-                        });
-                      },
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: const Size(100, 50),
-                        backgroundColor:
-                            isButtonEnabled ? Colors.white : Colors.grey,
-                      ),
-                      child: Text(
-                        'Register',
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: isButtonEnabled ? Colors.black : Colors.white,
-                        ),
-                      ),
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Padding(
-                        padding: EdgeInsets.only(top: 20, left: 10),
-                        child: Text(
-                          "Have an account ?",
-                          style: TextStyle(
-                            height: 0,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w400,
-                            fontSize: 15,
-                          ),
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 12),
-                        child: TextButton(
-                          onPressed: (() {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => const LoginScreen()));
-                          }),
-                          child: const Text(
-                            'LogIn',
-                            style: TextStyle(
-                              // height: 3,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
-                              fontSize: 18,
-                            ),
-                          ),
-                        ),
-                      ),
-                      // const Padding(
-                      //   padding: EdgeInsets.only(top: 10),
-                      //   child: Icon(
-                      //     Icons.person_add,
-                      //     size: 17,
-                      //     color: Colors.white,
-                      //   ),
-                      // ),
-                    ],
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 30, bottom: 5),
-                    child: TextButton(
-                      onPressed: (() {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) =>
-                                    const SignupPhoneScreen()));
-                      }),
-                      child: const Text(
-                        'Signup with Mobile number ',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16,
-                          fontWeight: FontWeight.w600,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.only(top: 9, bottom: 12),
-                    child: Text(
-                      'OR',
-                      style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
+                ),
+              ),
+              Expanded(
+                flex: 0,
+                child: Container(
+                  margin: const EdgeInsets.all(14),
+                  child: Form(
+                    key: _formKey,
+                    child: Column(
                       children: [
+                        const Padding(
+                          padding: EdgeInsets.only(
+                            right: 152.0,
+                          ),
+                          child: Text(
+                            'Email',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                              height: 2,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 230,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(22.0)),
+                          ),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: TextFormField(
+                              controller: emailController,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w500,
+                              ),
+                              decoration: const InputDecoration(
+                                prefixIcon: Icon(
+                                  Icons.person,
+                                  color: Colors.black,
+                                ),
+                                border: InputBorder.none,
+                              ),
+                              onChanged: (value) => setState(() {
+                                isButtonEnabled = false;
+                              }),
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(right: 130.0, top: 20),
+                          child: Text(
+                            'Password',
+                            style: TextStyle(
+                              fontSize: 17,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w400,
+                              height: 2,
+                            ),
+                          ),
+                        ),
+                        Container(
+                          width: 230,
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(22.0)),
+                          ),
+                          child: Align(
+                            alignment: Alignment.topCenter,
+                            child: TextFormField(
+                              controller: passwordController,
+                              style: const TextStyle(
+                                fontSize: 18,
+                              ),
+                              obscureText: passwordVisible,
+                              decoration: InputDecoration(
+                                border: InputBorder.none,
+                                prefixIcon: const Icon(
+                                  Icons.key,
+                                  color: Colors.black,
+                                ),
+                                suffixIcon: IconButton(
+                                  color: Colors.black,
+                                  icon: Icon(
+                                    passwordVisible
+                                        ? Icons.visibility_off
+                                        : Icons.visibility,
+                                  ),
+                                  onPressed: () {
+                                    setState(
+                                      () {
+                                        passwordVisible = !passwordVisible;
+                                      },
+                                    );
+                                  },
+                                ),
+                                alignLabelWithHint: false,
+                                filled: true,
+                              ),
+                              keyboardType: TextInputType.visiblePassword,
+                              textInputAction: TextInputAction.done,
+                              onChanged: (value) => setState(() {
+                                isButtonEnabled =
+                                    (isPasswordValid && isEmailValid)
+                                        ? true
+                                        : false;
+                              }),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(height: 18.0),
                         Padding(
-                          padding: const EdgeInsets.only(top: 4),
-                          child: Expanded(
-                            flex: 0,
-                            child: TextButton(
-                              onPressed: null,
-                              child: Image.asset(
-                                'images/googlepic.png',
-                                height: 29,
-                                width: 30,
+                          padding: const EdgeInsets.only(top: 20),
+                          child: ElevatedButton(
+                            onPressed: isButtonEnabled
+                                ? () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            const LoginScreen(),
+                                      ),
+                                    );
+                                  }
+                                : null,
+                            style: ElevatedButton.styleFrom(
+                              minimumSize: const Size(100, 50),
+                              backgroundColor:
+                                  isButtonEnabled ? Colors.white : Colors.grey,
+                            ),
+                            child: Text(
+                              'Register',
+                              style: TextStyle(
+                                fontSize: 18,
+                                color: isButtonEnabled
+                                    ? Colors.black
+                                    : Colors.white,
                               ),
                             ),
                           ),
                         ),
-                        Expanded(
-                          flex: 0,
-                          child: TextButton(
-                            onPressed: null,
-                            child: Image.asset(
-                              'images/facebookpic.png',
-                              height: 29,
-                              width: 30,
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Padding(
+                              padding: EdgeInsets.only(top: 14, left: 10),
+                              child: Text(
+                                "Have an account ?",
+                                style: TextStyle(
+                                  height: 0,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 16,
+                                ),
+                              ),
                             ),
+                            Padding(
+                              padding: const EdgeInsets.only(top: 10),
+                              child: TextButton(
+                                onPressed: (() {
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (context) =>
+                                              const LoginScreen()));
+                                }),
+                                child: const Text(
+                                  'LogIn',
+                                  style: TextStyle(
+                                    // height: 3,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18,
+                                  ),
+                                ),
+                              ),
+                            ),
+                            // const Padding(
+                            //   padding: EdgeInsets.only(top: 10),
+                            //   child: Icon(
+                            //     Icons.person_add,
+                            //     size: 17,
+                            //     color: Colors.white,
+                            //   ),
+                            // ),
+                          ],
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(top: 10),
+                          child: TextButton(
+                            onPressed: (() {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const SignupPhoneScreen()));
+                            }),
+                            child: const Text(
+                              'Signup with Mobile number ',
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
+                          ),
+                        ),
+                        const Padding(
+                          padding: EdgeInsets.only(top: 2),
+                          child: Text(
+                            'OR',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.only(),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Padding(
+                                padding: const EdgeInsets.only(top: 4),
+                                child: Expanded(
+                                  flex: 0,
+                                  child: TextButton(
+                                    onPressed: null,
+                                    child: Image.asset(
+                                      'images/googlepic.png',
+                                      height: 29,
+                                      width: 30,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                flex: 0,
+                                child: TextButton(
+                                  onPressed: null,
+                                  child: Image.asset(
+                                    'images/facebookpic.png',
+                                    height: 29,
+                                    width: 30,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ],
                     ),
                   ),
-                ],
+                ),
               ),
-            ),
+            ],
           ),
         ),
-      ],
-    );
-  }
-
-  FutureBuilder<UserLogin> buildFutureBuilder() {
-    return FutureBuilder<UserLogin>(
-      future: _futureUserSignup,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          var info = snapshot.data!;
-          return Text(
-            '${info.email}\n${info.password}',
-            style: const TextStyle(
-              decoration: TextDecoration.none,
-              fontSize: 18,
-            ),
-          );
-        } else if (snapshot.hasError) {
-          return Text('${snapshot.error}');
-        }
-        return const CircularProgressIndicator();
-      },
+      ),
     );
   }
 }

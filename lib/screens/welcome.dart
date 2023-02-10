@@ -27,13 +27,14 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
       width: double.infinity,
       decoration: const BoxDecoration(
         image: DecorationImage(
-            image: AssetImage("images/logo.jpg"), fit: BoxFit.cover),
+            image: AssetImage("images/welcomepic.png"), fit: BoxFit.cover),
       ),
       alignment: Alignment.center,
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Padding(
-            padding: EdgeInsets.only(bottom: 250, top: 150),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 80, right: 10),
             child: Text(
               'WELCOME',
               style: TextStyle(
@@ -44,61 +45,66 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 //height: 15,
                 fontFamily: 'EB Garamond',
               ),
+              textAlign: TextAlign.center,
             ),
           ),
-          Container(
-            width: 260.0,
-            height: 60.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
-            ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 100, 0, 20),
             child: Center(
-                child: TextButton(
-                    onPressed: (() {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen()));
-                    }),
-                    child: const Text(
-                      'LOGIN',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black,
-                        decoration: TextDecoration.none,
-                      ),
-                    ))),
-          ),
-          Container(
-            height: 40,
-          ),
-          Container(
-            width: 260.0,
-            height: 60.0,
-            decoration: const BoxDecoration(
-              shape: BoxShape.rectangle,
-              color: Colors.white,
-              borderRadius: BorderRadius.all(Radius.circular(20.0)),
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  // minimumSize: const Size.fromHeight(10.0),
+                  backgroundColor: Colors.white,
+                ),
+                onPressed: (() {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LoginScreen()));
+                }),
+                child: Padding(
+                  padding: const EdgeInsets.fromLTRB(52, 15, 52, 15),
+                  child: const Text(
+                    'LOGIN',
+                    style: TextStyle(
+                      fontSize: 22,
+                      color: Colors.black,
+                      decoration: TextDecoration.none,
+                    ),
+                  ),
+                ),
+              ),
             ),
+          ),
+
+          Padding(
+            padding: const EdgeInsets.fromLTRB(0, 20, 0, 0),
             child: Center(
-                child: TextButton(
+                child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      //  maximumSize: const Size.fromHeight(2),
+                      // minimumSize: Size.fromWidth(5),
+                      backgroundColor: Colors.white,
+                    ),
                     onPressed: (() {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: (context) => const SignupScreen()));
                     }),
-                    child: const Text(
-                      'SIGNUP',
-                      style: TextStyle(
-                        fontSize: 20.0,
-                        color: Colors.black,
-                        decoration: TextDecoration.none,
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(50, 15, 50, 15),
+                      child: const Text(
+                        'SIGNUP',
+                        style: TextStyle(
+                          fontSize: 21,
+                          color: Colors.black,
+                          decoration: TextDecoration.none,
+                        ),
                       ),
                     ))),
-          )
+          ),
+
           // ElevatedButton(
           //   style: style,
           //   onPressed: null,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:games4u/screens/otp.dart';
 import 'package:games4u/screens/signup.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
@@ -94,7 +95,8 @@ class SignupPhoneScreen extends StatelessWidget {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const SignupScreen()));
+                                builder: (context) =>
+                                    const OtpVerificationPage()));
                       }),
                       child: const Text(
                         "Send OTP",

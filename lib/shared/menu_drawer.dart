@@ -8,10 +8,21 @@ class MenuDrawer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
+      backgroundColor: Colors.white,
       child: ListView(
         children: [
           DrawerHeader(
-            child: Text('BEO SPORTS'),
+            child: Container(
+              // width: 30,
+              // height: 30,
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                  image: AssetImage('images/unknown1.jpg'),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
           ),
           ListTile(
             leading: Icon(
@@ -55,19 +66,14 @@ class MenuDrawer extends StatelessWidget {
                 title: Text('My Team'),
               ),
               ListTile(
-                title: Text('Add Team'),
+                title: Text('Matches'),
               ),
-              ExpansionTile(
-                title: Text('Schedule'),
-                children: [
-                  ListTile(
-                    title: Text('Matches'),
-                  ),
-                  ListTile(
-                    title: Text('Leagues'),
-                  ),
-                ],
-              )
+              ListTile(
+                title: Text('Leagues'),
+              ),
+              ListTile(
+                title: Text('Ranking'),
+              ),
             ],
           ),
           ListTile(
@@ -86,17 +92,33 @@ class MenuDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
+              Icons.live_tv_sharp,
+              color: Colors.black,
+            ),
+            title: Text('Live Score'),
+          ),
+          ListTile(
+            leading: Icon(
               FontAwesomeIcons.trophy,
               color: Colors.black,
             ),
             title: Text('My Tournaments'),
           ),
-          ListTile(
+
+          ExpansionTile(
             leading: Icon(
               FontAwesomeIcons.building,
               color: Colors.black,
             ),
             title: Text('Academy'),
+            children: [
+              ListTile(
+                title: Text('Login'),
+              ),
+              ListTile(
+                title: Text('Register'),
+              ),
+            ],
           ),
           ListTile(
             leading: Icon(
@@ -121,24 +143,17 @@ class MenuDrawer extends StatelessWidget {
           ),
           ListTile(
             leading: Icon(
-              Icons.help,
+              Icons.contact_support_outlined,
               color: Colors.black,
             ),
-            title: Text('Help'),
+            title: Text('About Us'),
           ),
           ListTile(
             leading: Icon(
-              Icons.settings,
+              Icons.phone,
               color: Colors.black,
             ),
-            title: Text('Settings'),
-          ),
-          ListTile(
-            leading: Icon(
-              Icons.logout,
-              color: Colors.black,
-            ),
-            title: Text('Sign Out'),
+            title: Text('Contact Us'),
           ),
         ],
       ),
