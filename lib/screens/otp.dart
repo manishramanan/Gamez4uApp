@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 class OtpVerificationPage extends StatefulWidget {
-  final String verificationId;
-  const OtpVerificationPage({Key? key, required this.verificationId})
-      : super(key: key);
+  const OtpVerificationPage({super.key});
+
   @override
   // ignore: library_private_types_in_public_api
   _OtpVerificationPageState createState() => _OtpVerificationPageState();
@@ -38,14 +37,11 @@ class _OtpVerificationPageState extends State<OtpVerificationPage> {
           Padding(
             padding: const EdgeInsets.only(top: 40, right: 300),
             child: IconButton(
-              // alignment: const Alignment(),
-              iconSize: 30,
-              color: Colors.black,
-              icon: const Icon(Icons.arrow_back),
-              onPressed: () {
-                // Navigate back to the previous page
-              },
-            ),
+                // alignment: const Alignment(),
+                iconSize: 30,
+                color: Colors.black,
+                icon: const Icon(Icons.arrow_back),
+                onPressed: (() => Navigator.pop(context))),
           ),
           Column(
             children: <Widget>[

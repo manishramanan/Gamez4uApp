@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/login.dart';
+import 'package:games4u/screens/otp.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class LoginPhoneScreen extends StatelessWidget {
@@ -18,7 +19,7 @@ class LoginPhoneScreen extends StatelessWidget {
               iconSize: 30,
               color: Colors.black,
               icon: const Icon(Icons.arrow_back),
-              onPressed: (() => Navigator.pop(context))
+              onPressed: (() => Navigator.pop(context)),
             ),
           ),
           Column(
@@ -92,12 +93,12 @@ class LoginPhoneScreen extends StatelessWidget {
                   child: Center(
                     child: TextButton(
                       onPressed: (() {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const LoginScreen()));
-                        }),
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const OtpVerificationPage()));
+                      }),
                       child: const Text(
                         "Send OTP",
                         textAlign: TextAlign.center,
@@ -164,7 +165,7 @@ class LoginPhoneScreen extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 80),
                 child: Transform(
-                  transform: Matrix4.translationValues(0.0, -12.0, 0.0),
+                  transform: Matrix4.translationValues(0.0, 0, 0.0),
                   child: Row(
                     children: [
                       TextButton(
