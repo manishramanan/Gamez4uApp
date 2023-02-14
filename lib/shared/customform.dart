@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 // Create a Form widget.
 class MyCustomForm extends StatefulWidget {
@@ -8,12 +9,11 @@ class MyCustomForm extends StatefulWidget {
   MyCustomFormState createState() {
     return MyCustomFormState();
   }
-
-
 }
 
 class MyCustomFormState extends State<MyCustomForm> {
   final _formKey = GlobalKey<FormState>();
+  final TextEditingController _date = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +25,6 @@ class MyCustomFormState extends State<MyCustomForm> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
@@ -38,7 +37,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   },
                 ),
               ),
-              
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
@@ -51,7 +50,7 @@ class MyCustomFormState extends State<MyCustomForm> {
                   },
                 ),
               ),
-             
+
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
@@ -66,22 +65,26 @@ class MyCustomFormState extends State<MyCustomForm> {
                   },
                 ),
               ),
-           
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: TextFormField(
-                  decoration: InputDecoration(
-                      labelText: 'Enter DOB', hintText: 'DD/MM/YYYY'),
-                  validator: (value) {
-                    if (!RegExp(
-                            r"^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$")
-                        .hasMatch(value!)) {
-                      return 'Enter a valid date of birth';
-                    }
-                    return null;
-                  },
-                ),
-              ),
+
+              DateUI(
+                  _date, "DOB", "Enter DOB", () => {datepicker(_date)}, true),
+
+              // Padding(
+              //   padding: const EdgeInsets.all(8.0),
+
+              //   child: TextFormField(
+              //     decoration: InputDecoration(
+              //         labelText: 'Enter DOB', hintText: 'DD/MM/YYYY'),
+              //     validator: (value) {
+              //       if (!RegExp(
+              //               r"^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$")
+              //           .hasMatch(value!)) {
+              //         return 'Enter a valid date of birth';
+              //       }
+              //       return null;
+              //     },
+              //   ),
+              // ),
 
               Padding(
                 padding: const EdgeInsets.only(top: 50),
@@ -113,6 +116,71 @@ class MyCustomFormState extends State<MyCustomForm> {
           ),
         ),
       ),
+    );
+  }
+
+  Future<Null> datepicker(TextEditingController con) async {
+    DateTime? pickedDate = await showDatePicker(
+        context: context,
+        initialDate: DateTime.now(),
+        firstDate: DateTime(
+            2000), //DateTime.now() - not to allow to choose before today.
+        lastDate: DateTime(2101));
+
+    if (pickedDate != null) {
+      print(pickedDate); //pickedDate output format => 2021-03-10 00:00:00.000
+      String formattedDate = DateFormat('d/M/y').format(pickedDate);
+      print(
+          formattedDate); //formatted date output using intl package =>  2021-03-16
+      //you can implement different kind of Date Format here according to your requirement
+
+      setState(() {
+        con.text = formattedDate; //set output date to TextField value.
+      });
+    } else {
+      print("Date is not selected");
+    }
+  }
+
+  Widget DateUI(
+    TextEditingController? formcontroler,
+    String? formlabel,
+    String? hinttext,
+    Function()? tap,
+    bool boolvalue,
+  ) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: EdgeInsets.only(top: 0, left: 10.0, right: 10.0),
+          child: Text(
+            "$formlabel",
+            style: TextStyle(
+              color: Colors.white,
+            ),
+          ),
+        ),
+        Padding(
+            padding: EdgeInsets.only(top: 0, left: 10.0, right: 10.0),
+            child: SingleChildScrollView(
+              child: TextFormField(
+                readOnly: boolvalue,
+                controller: formcontroler,
+                //cursorColor: Colors.red,
+                decoration: InputDecoration(
+                  hintText: "Enter DOB",
+                  suffixIcon: Icon(
+                    Icons.calendar_month,
+                    color: Colors.black,
+                  ),
+                 
+                ),
+                onTap: tap,
+              ),
+            ))
+      ],
     );
   }
 }
