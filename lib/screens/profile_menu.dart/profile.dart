@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:games4u/shared/customform.dart';
-import '../shared/menu_drawer.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -27,15 +24,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
           'Profile',
           style: TextStyle(color: Colors.white),
         ),
-        actions: [
-          IconButton(
-            color: Colors.black,
-            onPressed: () {},
-            icon: Icon(
-              Icons.edit,
-            ),
-          ),
-        ],
       ),
       body: Column(
         children: [

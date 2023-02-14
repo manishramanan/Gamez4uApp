@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/Forgotpass.dart';
+import 'package:games4u/screens/Forgot_password.dart/Forgotpass.dart';
 
 import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/screens/login_phone.dart';
@@ -242,8 +242,7 @@ class LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const ForgotpassScreen()));
+                                    builder: (context) => ForgotpassScreen()));
                           }),
                           child: const Text(
                             'Forgot Password',

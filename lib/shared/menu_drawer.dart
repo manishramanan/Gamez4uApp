@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:games4u/screens/profile.dart';
+import 'package:games4u/screens/profile_menu.dart/profile.dart';
+import 'package:games4u/screens/profile_menu.dart/user_account.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({super.key});
@@ -9,52 +10,69 @@ class MenuDrawer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: Colors.white,
+      // final header = DrawerHeader(
+      //   child: CircleAvatar(
+      //                 foregroundImage: AssetImage('images/cricket.jpg'),
+      //                 radius: 50,
+      //               ),
+      // );
       child: ListView(
         children: [
           DrawerHeader(
             child: Container(
-              // width: 30,
-              // height: 30,
+              height: 35,
+              width: 35,
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
-                  image: AssetImage('images/unknown1.jpg'),
-                  fit: BoxFit.cover,
+                  image: AssetImage('images/profilepic.png'),
+                  // fit: BoxFit.cover,
                 ),
+              ),
+              child: Align(
+                alignment: Alignment.topLeft,
+                child: IconButton(
+                    onPressed: (() => Navigator.pop(context)),
+                    icon: Icon(
+                      Icons.menu,
+                      size: 25,
+                    )),
               ),
             ),
           ),
+          // decoration: BoxDecoration(
+          //   shape: BoxShape.circle,
+          //   image: DecorationImage(
+          // image: AssetImage('images/profilepic.png'),
+
+          //   ),
+          // ),
+          // child: Align(
+          //     alignment: Alignment.topLeft,
+          //     child: IconButton(
+          //       onPressed: (() => Navigator.pop(context)),
+          //       icon: Icon(
+          //         Icons.menu,
+          //         color: Colors.black,
+          //         size: 26,
+          //       ),
+          //     )),
+
           ListTile(
             leading: Icon(
               Icons.person,
               color: Colors.black,
             ),
-            title: Text('My profile'),
+            title: Text('My Account'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const ProfileScreen(),
+                  builder: (context) => const ProfileMenu(),
                 ),
               );
             },
           ),
-          // ExpansionTile(
-          //   leading: Icon(
-          //     Icons.person,
-          //     color: Colors.black,
-          //   ),
-          //   title: Text('My profile'),
-
-          //   children: [
-          //     ListTile(
-          //       title: Text('login'),
-          //     ),
-          //     ListTile(
-          //       title: Text('sign up'),
-          //     ),
-          //   ],
-          // ),
           ExpansionTile(
             leading: Icon(
               FontAwesomeIcons.gamepad,
@@ -83,12 +101,21 @@ class MenuDrawer extends StatelessWidget {
             ),
             title: Text('Start Match'),
           ),
-          ListTile(
+
+          ExpansionTile(
             leading: Icon(
               Icons.sports_cricket,
               color: Colors.black,
             ),
-            title: Text('Go Live'),
+            title: Text('Go Live '),
+            children: [
+              ListTile(
+                title: Text('ScoreBoard'),
+              ),
+              ListTile(
+                title: Text('Streaming'),
+              ),
+            ],
           ),
           ListTile(
             leading: Icon(
@@ -104,7 +131,6 @@ class MenuDrawer extends StatelessWidget {
             ),
             title: Text('My Tournaments'),
           ),
-
           ExpansionTile(
             leading: Icon(
               FontAwesomeIcons.building,
