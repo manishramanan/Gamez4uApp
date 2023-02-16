@@ -17,17 +17,8 @@ class ProfileMenu extends StatelessWidget {
         elevation: 0,
         title: Text(
           ' My Account ',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
         ),
-        actions: [
-          IconButton(
-            color: Colors.black,
-            onPressed: () {},
-            icon: Icon(
-              Icons.cancel_rounded,
-            ),
-          ),
-        ],
       ),
       body: Column(
         children: [
@@ -44,21 +35,19 @@ class ProfileMenu extends StatelessWidget {
                       ))),
               // color: Colors.green,
               alignment: Alignment.center,
-              child: Row(
+              child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.all(5),
+                    padding: const EdgeInsets.only(top: 50, bottom: 15),
                     child: CircleAvatar(
                       foregroundImage: AssetImage('images/cricket.jpg'),
-                      radius: 50,
+                      radius: 55,
                     ),
                   ),
                   Text(
-                    ' VISHAL ',
-                    style: TextStyle(
-                      fontSize: 20,
-                    ),
+                    ' SAI VISHAL ',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ],
               ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:games4u/screens/MyGames/my_games.dart';
+import 'package:games4u/screens/StartMatch/select_text.dart';
 import 'package:games4u/screens/profile_menu.dart/profile.dart';
 import 'package:games4u/screens/profile_menu.dart/user_account.dart';
 
@@ -32,32 +34,15 @@ class MenuDrawer extends StatelessWidget {
               child: Align(
                 alignment: Alignment.topLeft,
                 child: IconButton(
-                    onPressed: (() => Navigator.pop(context)),
-                    icon: Icon(
-                      Icons.menu,
-                      size: 25,
-                    )),
+                  onPressed: (() => Navigator.pop(context)),
+                  icon: Icon(
+                    Icons.menu,
+                    size: 25,
+                  ),
+                ),
               ),
             ),
           ),
-          // decoration: BoxDecoration(
-          //   shape: BoxShape.circle,
-          //   image: DecorationImage(
-          // image: AssetImage('images/profilepic.png'),
-
-          //   ),
-          // ),
-          // child: Align(
-          //     alignment: Alignment.topLeft,
-          //     child: IconButton(
-          //       onPressed: (() => Navigator.pop(context)),
-          //       icon: Icon(
-          //         Icons.menu,
-          //         color: Colors.black,
-          //         size: 26,
-          //       ),
-          //     )),
-
           ListTile(
             leading: Icon(
               Icons.person,
@@ -73,26 +58,20 @@ class MenuDrawer extends StatelessWidget {
               );
             },
           ),
-          ExpansionTile(
+          ListTile(
             leading: Icon(
               FontAwesomeIcons.gamepad,
               color: Colors.black,
             ),
             title: Text('My Games'),
-            children: [
-              ListTile(
-                title: Text('My Team'),
-              ),
-              ListTile(
-                title: Text('Matches'),
-              ),
-              ListTile(
-                title: Text('Leagues'),
-              ),
-              ListTile(
-                title: Text('Ranking'),
-              ),
-            ],
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyGamesPage(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: Icon(
@@ -100,8 +79,12 @@ class MenuDrawer extends StatelessWidget {
               color: Colors.black,
             ),
             title: Text('Start Match'),
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => SelectText(),
+              ));
+            },
           ),
-
           ExpansionTile(
             leading: Icon(
               Icons.sports_cricket,
