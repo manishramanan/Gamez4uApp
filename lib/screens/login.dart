@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/Forgot_password.dart/Forgotpass.dart';
+import 'package:games4u/screens/ForgotPassword/Forgotpass.dart';
 
 import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/screens/login_phone.dart';

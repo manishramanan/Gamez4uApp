@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/Forgot_password.dart/otp_mail.dart';
+import 'package:games4u/screens/ForgotPassword/otp_mail.dart';
 
 class ForgotpassScreen extends StatelessWidget {
   @override

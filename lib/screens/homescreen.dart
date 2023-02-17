@@ -343,7 +343,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Padding(
                         padding: EdgeInsets.all(3),
                         child: Text(
-                            'The Athletic delivers powerful stories and \n\t\t smart analysis that bring sports fans \n \t \t \t \tcloser to the heart of the game.'),
+                            'The Athletic delivers powerful stories and \n\t\t smart analysis that bring sports fans \n \t \t \t \t closer to the heart of the game.'),
                       )
                     ],
                   ),
