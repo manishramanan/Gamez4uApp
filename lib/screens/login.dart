@@ -5,6 +5,8 @@ import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/screens/login_phone.dart';
 import 'package:games4u/screens/signup.dart';
 
+import 'Welcome/Thirdpage.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -204,7 +206,7 @@ class LoginScreenState extends State<LoginScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const HomeScreen(),
+                                      builder: (context) => const ThirdPage(),
                                     ),
                                   );
                                 }
@@ -297,8 +299,7 @@ class LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) =>
-                                        const LoginPhoneScreen()));
+                                    builder: (context) => LoginPhoneScreen()));
                           }),
                           child: const Text(
                             'Login with Phone Number',

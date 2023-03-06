@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/MyGames/my_games.dart';
+import 'package:games4u/screens/StartMatch/selectA.dart';
 
 class SelectPlayer extends StatefulWidget {
   @override
@@ -111,7 +112,7 @@ class _SelectPlayerState extends State<SelectPlayer> {
                 ),
                 onPressed: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => MyGamesPage(),
+                    builder: (context) => PlayerAteam(),
                   ));
                 },
                 child: const Text(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:games4u/screens/login.dart';
 import 'package:games4u/screens/signup_phone.dart';
 
+import 'Welcome/Thirdpage.dart';
+
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
 
@@ -212,8 +214,7 @@ class SignupScreenState extends State<SignupScreen> {
                                     Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LoginScreen(),
+                                        builder: (context) => const ThirdPage(),
                                       ),
                                     );
                                   }

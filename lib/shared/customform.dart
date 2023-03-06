@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:games4u/screens/profile_menu.dart/editprofile.dart';
 import 'package:intl/intl.dart';
 
 // Create a Form widget.
@@ -11,7 +12,11 @@ class MyCustomForm extends StatefulWidget {
   }
 }
 
+enum Gender { male, female }
+
 class MyCustomFormState extends State<MyCustomForm> {
+  // Gender gender = Gender.male;
+  Gender? gender;
   final _formKey = GlobalKey<FormState>();
   final TextEditingController _date = TextEditingController();
 
@@ -85,7 +90,30 @@ class MyCustomFormState extends State<MyCustomForm> {
               //     },
               //   ),
               // ),
-
+              // Text(
+              //   'Gender',
+              //   style: TextStyle(fontSize: 16.0),
+              // ),
+              // RadioListTile<Gender>(
+              //   title: const Text('Male'),
+              //   value: Gender.male,
+              //   groupValue: gender,
+              //   onChanged: (value) {
+              //     setState(() {
+              //       gender = value!;
+              //     });
+              //   },
+              // ),
+              // RadioListTile<Gender>(
+              //   title: const Text('Female'),
+              //   value: Gender.female,
+              //   groupValue: gender,
+              //   onChanged: (value) {
+              //     setState(() {
+              //       gender = value!;
+              //     });
+              //   },
+              // ),
               Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: Align(
@@ -163,23 +191,23 @@ class MyCustomFormState extends State<MyCustomForm> {
           ),
         ),
         Padding(
-            padding: EdgeInsets.only(top: 0, left: 10.0, right: 10.0),
-            child: SingleChildScrollView(
-              child: TextFormField(
-                readOnly: boolvalue,
-                controller: formcontroler,
-                //cursorColor: Colors.red,
-                decoration: InputDecoration(
-                  hintText: "Enter DOB",
-                  suffixIcon: Icon(
-                    Icons.calendar_month,
-                    color: Colors.black,
-                  ),
-                 
+          padding: EdgeInsets.only(top: 0, left: 10.0, right: 10.0),
+          child: SingleChildScrollView(
+            child: TextFormField(
+              readOnly: boolvalue,
+              controller: formcontroler,
+              //cursorColor: Colors.red,
+              decoration: InputDecoration(
+                hintText: "Enter DOB",
+                suffixIcon: Icon(
+                  Icons.calendar_month,
+                  color: Colors.black,
                 ),
-                onTap: tap,
               ),
-            ))
+              onTap: tap,
+            ),
+          ),
+        )
       ],
     );
   }

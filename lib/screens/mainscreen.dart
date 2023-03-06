@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/welcome.dart';
 
+import 'Welcome/Firstpage.dart';
+
 class LogoScreen extends StatefulWidget {
   const LogoScreen({super.key});
 
@@ -20,7 +22,7 @@ class _LogoScreenState extends State<LogoScreen> {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const WelcomeScreen()),
+        MaterialPageRoute(builder: (context) => const ImageFirst()),
       );
     });
   }
