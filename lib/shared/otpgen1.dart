@@ -38,12 +38,13 @@ class _OtpFieldState extends State<OtpField> {
             height: 60.0,
             margin: EdgeInsets.symmetric(horizontal: 4.0),
             decoration: BoxDecoration(),
-            child: TextField(
+            child: TextFormField(
               cursorColor: Colors.white,
               keyboardType: TextInputType.number,
               controller: textControllers[index],
               focusNode: focusNodes[index],
               decoration: InputDecoration(
+                counterText: "",
                 border: OutlineInputBorder(
                   borderSide: const BorderSide(
                     color: Colors.black,

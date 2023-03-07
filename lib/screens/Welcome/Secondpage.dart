@@ -11,29 +11,41 @@ class ImageSet extends StatefulWidget {
 class _ImageSetState extends State<ImageSet> {
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        body: Material(
-          child: Container(
-            height: double.infinity,
-            width: double.infinity,
-            //padding: const EdgeInsets.all(25.0),
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('images/firstpage1.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              // crossAxisAlignment: CrossAxisAlignment.end,
-
-              children: <Widget>[
-                bottomtext(context),
-              ],
+        body: Container(
+          //padding: const EdgeInsets.all(25.0),
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('images/Diagonalpic.png'),
+              fit: BoxFit.cover,
             ),
           ),
+          child: Column(
+            // mainAxisAlignment: MainAxisAlignment.end,
+            // crossAxisAlignment: CrossAxisAlignment.end,
+
+            children: <Widget>[
+              heading(),
+              // bottomtext(context),
+            ],
+          ),
         ),
+      ),
+    );
+  }
+
+  Widget heading() {
+    return SizedBox(
+      child: Image(
+        image: AssetImage(
+          'images/Crick.png',
+        ),
+
+        // height: 100,
+        // width: 100,
       ),
     );
   }
@@ -41,8 +53,6 @@ class _ImageSetState extends State<ImageSet> {
   Widget bottomtext(BuildContext context) {
     return Container(
       alignment: Alignment.bottomRight,
-      padding: const EdgeInsets.only(
-          top: 10.0, right: 20, left: 15.0, bottom: 180.0),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.white,

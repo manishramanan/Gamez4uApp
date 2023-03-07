@@ -4,7 +4,9 @@ import 'package:games4u/screens/otp.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 
 class LoginPhoneScreen extends StatelessWidget {
-  const LoginPhoneScreen({super.key});
+  LoginPhoneScreen({super.key});
+
+  // List<String> country_list = ['India'];
 
   @override
   Widget build(BuildContext context) {
@@ -58,6 +60,8 @@ class LoginPhoneScreen extends StatelessWidget {
                       color: Colors.white,
                     ),
                     child: InternationalPhoneNumberInput(
+                      // countries: country_list,
+                      maxLength: 10,
                       onInputChanged: (value) {},
                       cursorColor: Colors.black,
                       formatInput: false,

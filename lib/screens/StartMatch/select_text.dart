@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/StartMatch/selectplayer.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:games4u/screens/StartMatch/startmatch.dart';
+import 'package:games4u/screens/invite.dart';
 
 class SelectText extends StatelessWidget {
   const SelectText({super.key});
@@ -11,12 +14,38 @@ class SelectText extends StatelessWidget {
           toolbarHeight: 80,
           title: const Text("Start Match"),
           backgroundColor: Color(0xFF00A4E4),
-          centerTitle: true,
           leading: IconButton(
             iconSize: 25,
             icon: const Icon(Icons.arrow_back),
             onPressed: (() => Navigator.pop(context)),
           ),
+          actions: [
+            TextButton(
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => SettingsPage(),
+                ));
+              },
+              child: Text(
+                "Invite",
+                style: TextStyle(color: Colors.white, fontSize: 20),
+                textAlign: TextAlign.center,
+              ),
+            ),
+            IconButton(
+              padding: EdgeInsets.only(right: 25),
+              alignment: Alignment.centerRight,
+              color: Colors.white,
+              onPressed: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => SettingsPage(),
+                ));
+              },
+              icon: const Icon(
+                FontAwesomeIcons.userGroup,
+              ),
+            ),
+          ],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -50,7 +79,7 @@ class SelectText extends StatelessWidget {
         ),
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => SelectPlayer(),
+            builder: (context) => StartMatch(),
           ));
         },
         child: const Text(

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/Welcome/Secondpage.dart';
 
+import '../welcome.dart';
+import 'Thirdpage.dart';
+
 class ImageFirst extends StatefulWidget {
   const ImageFirst({super.key});
 
@@ -85,7 +88,7 @@ class _ImageFirstState extends State<ImageFirst> {
         ),
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => const ImageSet(),
+            builder: (context) => const WelcomeScreen(),
           ));
         },
         child: const Text(
