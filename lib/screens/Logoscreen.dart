@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/welcome.dart';
-
-import 'Welcome/Firstpage.dart';
+import 'package:games4u/screens/Welcome/scroll.dart';
 
 class LogoScreen extends StatefulWidget {
   const LogoScreen({super.key});
@@ -22,13 +20,15 @@ class _LogoScreenState extends State<LogoScreen> {
     Future.delayed(const Duration(seconds: 2), () {
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => const ImageFirst()),
+        MaterialPageRoute(builder: (context) => TwoScreenScroll()),
       );
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    double height = MediaQuery.of(context).size.height;
+    double width = MediaQuery.of(context).size.width;
     return Container(
       height: double.infinity,
       width: double.infinity,
@@ -39,10 +39,10 @@ class _LogoScreenState extends State<LogoScreen> {
         ),
       ),
       child: Padding(
-        padding: const EdgeInsets.only(bottom: 0, top: 300),
+        padding: EdgeInsets.only(top: height * 0.4),
         child: Container(
-          height: 100,
-          width: 100,
+          height: height * 0.1,
+          width: width * 0.1,
           decoration: const BoxDecoration(
             image: DecorationImage(
               image: AssetImage('images/logopic1.png'),

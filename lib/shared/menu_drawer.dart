@@ -4,11 +4,15 @@ import 'package:games4u/screens/Academy/Cricket_academy.dart';
 import 'package:games4u/screens/MyGames/leaderboard.dart';
 import 'package:games4u/screens/MyGames/my_games.dart';
 import 'package:games4u/screens/Quiz/quizWelcome.dart';
+import 'package:games4u/screens/ScoreCardScreens/youtube.dart';
 import 'package:games4u/screens/StartMatch/Tournament/Tournament1.dart';
 import 'package:games4u/screens/StartMatch/select_text.dart';
+import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/screens/profile_menu.dart/profile.dart';
 import 'package:games4u/screens/profile_menu.dart/user_account.dart';
-import 'package:games4u/screens/subscription.dart';
+import 'package:games4u/screens/Subscrption/subscription.dart';
+
+import '../screens/login.dart';
 
 class MenuDrawer extends StatelessWidget {
   const MenuDrawer({super.key});
@@ -48,6 +52,21 @@ class MenuDrawer extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.home,
+              color: Colors.black,
+            ),
+            title: Text('My Home'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const HomeScreen(),
+                ),
+              );
+            },
           ),
           ListTile(
             leading: Icon(
@@ -112,6 +131,11 @@ class MenuDrawer extends StatelessWidget {
             ],
           ),
           ListTile(
+            onTap: () {
+              Navigator.of(context).push(MaterialPageRoute(
+                builder: (context) => YoutubePage(),
+              ));
+            },
             leading: Icon(
               Icons.live_tv_sharp,
               color: Colors.black,
@@ -204,6 +228,21 @@ class MenuDrawer extends StatelessWidget {
               color: Colors.black,
             ),
             title: Text('Contact Us'),
+          ),
+          ListTile(
+            leading: Icon(
+              Icons.exit_to_app,
+              color: Colors.black,
+            ),
+            title: Text('Logout'),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LoginScreen(),
+                ),
+              );
+            },
           ),
         ],
       ),

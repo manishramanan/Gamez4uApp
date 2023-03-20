@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:games4u/screens/Invite/alert_invite.dart';
 
-class SettingsPage extends StatelessWidget {
+class SettingsPage extends StatefulWidget {
   const SettingsPage({super.key});
 
+  @override
+  State<SettingsPage> createState() => _SettingsPageState();
+}
+
+class _SettingsPageState extends State<SettingsPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 65,
         title: const Text("Invite"),
-        backgroundColor: Color(0xFF00A4E4),
+        backgroundColor:const Color(0xFF00A4E4),
         centerTitle: true,
         leading: IconButton(
           iconSize: 25,
@@ -18,36 +24,44 @@ class SettingsPage extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(50),
-        child: Column(
-          children: [
-            SizedBox(
-              height: 15,
+        padding:const EdgeInsets.only(top: 10),
+        child: SingleChildScrollView(
+          child: Center(
+            child: Stack(
+              children: [
+                Column(
+                  children: [
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    memberstext(context),
+                   const SizedBox(
+                      height: 15,
+                    ),
+                    viamail(context),
+                   const SizedBox(
+                      height: 15,
+                    ),
+                    viaphone(context),
+                   const SizedBox(
+                      height: 15,
+                    ),
+                    teamlink(context),
+                   const SizedBox(
+                      height: 15,
+                    ),
+                    addcontact(context),
+                   const SizedBox(
+                      height: 15,
+                    ),
+                    playesattime(
+                      context,
+                    ),
+                  ],
+                ),
+              ],
             ),
-            memberstext(context),
-            SizedBox(
-              height: 15,
-            ),
-            viamail(context),
-            SizedBox(
-              height: 15,
-            ),
-            viaphone(context),
-            SizedBox(
-              height: 15,
-            ),
-            teamlink(context),
-            SizedBox(
-              height: 15,
-            ),
-            addcontact(context),
-            SizedBox(
-              height: 15,
-            ),
-            playesattime(
-              context,
-            )
-          ],
+          ),
         ),
       ),
     );
@@ -63,14 +77,14 @@ class SettingsPage extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
+          side:const BorderSide(
             color: Color(0xFF00A4E4),
           ),
         ),
       ),
-      icon: Padding(
-        padding: const EdgeInsets.only(right: 5),
-        child: const Icon(
+      icon: const Padding(
+        padding: EdgeInsets.only(right: 5),
+        child: Icon(
           Icons.people,
           color: Colors.black,
           size: 24.0,
@@ -80,7 +94,10 @@ class SettingsPage extends StatelessWidget {
         'Members in Beo Group',
         style: TextStyle(color: Color(0xFF00A4E4), fontSize: 16),
       ),
-      onPressed: () {},
+      onPressed: (() {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => MyDialog()));
+      }),
     );
   }
 
@@ -94,7 +111,7 @@ class SettingsPage extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
+          side: const BorderSide(
             color: Color(0xFF00A4E4),
           ),
         ),
@@ -122,7 +139,7 @@ class SettingsPage extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
+          side: const BorderSide(
             color: Color(0xFF00A4E4),
           ),
         ),
@@ -150,7 +167,7 @@ class SettingsPage extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
+          side: const BorderSide(
             color: Color(0xFF00A4E4),
           ),
         ),
@@ -178,7 +195,7 @@ class SettingsPage extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
+          side: const BorderSide(
             color: Color(0xFF00A4E4),
           ),
         ),
@@ -206,7 +223,7 @@ class SettingsPage extends StatelessWidget {
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),
-          side: BorderSide(
+          side: const BorderSide(
             color: Color(0xFF00A4E4),
           ),
         ),

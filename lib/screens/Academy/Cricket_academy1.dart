@@ -41,9 +41,9 @@ class _ExamplePageState extends State<ExamplePage> {
         //   iconSize: 25,
         //   icon: const Icon(Icons.close), //close
         //   onPressed: () {
-        //     Navigator.of(context).push(MaterialPageRoute(
-        //       builder: (context) => CrickAcademyPage(),
-        //     ));
+            // Navigator.of(context).push(MaterialPageRoute(
+            //   builder: (context) => CrickAcademyPage(),
+            // ));
         //   },
         // ),
         actions: [

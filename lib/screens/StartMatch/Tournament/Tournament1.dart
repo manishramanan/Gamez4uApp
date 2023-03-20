@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/invite.dart';
+import 'package:games4u/screens/Invite/invite.dart';
 
 import '../../history.dart';
 import 'create_tournament.dart';

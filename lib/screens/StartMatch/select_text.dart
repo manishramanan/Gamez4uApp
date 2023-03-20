@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:games4u/screens/StartMatch/selectplayer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:games4u/screens/StartMatch/startmatch.dart';
-import 'package:games4u/screens/invite.dart';
+import 'package:games4u/screens/Invite/invite.dart';
 
 class SelectText extends StatelessWidget {
   const SelectText({super.key});
