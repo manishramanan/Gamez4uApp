@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/ForgotPassword/Forgotpass.dart';
-
-import 'package:games4u/screens/homescreen.dart';
-import 'package:games4u/screens/login_phone.dart';
 import 'package:games4u/screens/signup.dart';
 
-import 'Welcome/Thirdpage.dart';
+import 'PhoneNumber/Verify_phone.dart';
+import 'Welcome/selectgames.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -206,7 +204,7 @@ class LoginScreenState extends State<LoginScreen> {
                                   Navigator.push(
                                     context,
                                     MaterialPageRoute(
-                                      builder: (context) => const ThirdPage(),
+                                      builder: (context) =>  ThirdPage(),
                                     ),
                                   );
                                 }
@@ -299,7 +297,7 @@ class LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => LoginPhoneScreen()));
+                                    builder: (context) => LoginNumber()));
                           }),
                           child: const Text(
                             'Login with Phone Number',

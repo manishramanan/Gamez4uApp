@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/login.dart';
-import 'package:games4u/screens/signup_phone.dart';
 
-import 'Welcome/Thirdpage.dart';
+import 'PhoneNumber/Verify_phone.dart';
+import 'Welcome/selectgames.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -289,7 +289,7 @@ class SignupScreenState extends State<SignupScreen> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const SignupPhoneScreen()));
+                                          const LoginNumber()));
                             }),
                             child: const Text(
                               'Signup with Mobile number ',

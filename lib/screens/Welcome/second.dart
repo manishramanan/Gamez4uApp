@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/welcome.dart';
 
-class ThirdScreen extends StatefulWidget {
-  const ThirdScreen({super.key});
+import 'scroll.dart';
+import 'Thirdpage.dart';
+
+class SecondPage extends StatefulWidget {
+  const SecondPage({super.key});
 
   @override
-  State<ThirdScreen> createState() => _ThirdScreenState();
+  State<SecondPage> createState() => _SecondPageState();
 }
 
-class _ThirdScreenState extends State<ThirdScreen> {
+class _SecondPageState extends State<SecondPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -21,16 +23,11 @@ class _ThirdScreenState extends State<ThirdScreen> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Stack(
-          children: [
-            Column(
-              children: <Widget>[
-                heading(),
-                text(),
-                bottomtext(context),
-                remote(),
-              ],
-            ),
+        child: Column(
+          children: <Widget>[
+            heading(),
+            text(),
+            bottomtext(context),
           ],
         ),
       ),
@@ -41,25 +38,12 @@ class _ThirdScreenState extends State<ThirdScreen> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.only(top: height * 0.1),
+      height: height * 0.4,
+      //width: width * 0.5,
       alignment: Alignment.center,
-      child: const Image(
+      child: Image(
         image: AssetImage(
-          'images/abcde.jpg',
-        ),
-      ),
-    );
-  }
-
-  Widget remote() {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
-    return Container(
-      height: height * 0.15,
-      alignment: Alignment.bottomCenter,
-      child: const Image(
-        image: AssetImage(
-          'images/remote123.png',
+          'images/sai.png',
         ),
       ),
     );
@@ -69,23 +53,23 @@ class _ThirdScreenState extends State<ThirdScreen> {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Padding(
-      padding: EdgeInsets.only(left: width * 0.05, top: height * 0.05),
+      padding: EdgeInsets.only(left: width * 0.02),
       child: Align(
         alignment: Alignment.centerLeft,
         child: ShaderMask(
           blendMode: BlendMode.srcIn,
           shaderCallback: (bounds) {
             return LinearGradient(
-              colors: [Color(0xFF00A4E4), Colors.green],
+              colors: [Color(0xFF00A4E4), Color.fromARGB(255, 64, 70, 247)],
               begin: Alignment.centerLeft,
               end: Alignment.centerRight,
             ).createShader(bounds);
           },
           child: Text(
-            "I'M A SPADE \nYOU'RE AN OFAY \nLETS PLAY...",
+            '\t A \n WINNER \n NEVER \n STOPS \n TRYING',
             style: TextStyle(
                 color: Color(0xFF00A4E4),
-                fontSize: height * 0.046,
+                fontSize: height * 0.045,
                 fontWeight: FontWeight.w900,
                 fontFamily: "Gilroy"),
           ),
@@ -97,17 +81,14 @@ class _ThirdScreenState extends State<ThirdScreen> {
   Widget bottomtext(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return Padding(
-      padding: EdgeInsets.only(top: height * 0.18),
+    return Container(
+      alignment: Alignment.bottomRight,
+      padding: EdgeInsets.only(top: height * 0.15, right: width * 0.05),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color.fromARGB(255, 228, 225, 225),
-          side: const BorderSide(
-            width: 2.5,
-            color: Colors.black,
-          ),
+          backgroundColor: Colors.white,
           padding: EdgeInsets.symmetric(
-            horizontal: width * 0.08,
+            horizontal: width * 0.07,
             vertical: width * 0.04,
           ),
           shape:
@@ -115,11 +96,11 @@ class _ThirdScreenState extends State<ThirdScreen> {
         ),
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => WelcomeScreen(),
+            builder: (context) => ThirdScreen(),
           ));
         },
         child: const Text(
-          "PLAY",
+          "NEXT",
           style: TextStyle(
               color: Color(0xFF00A4E4),
               fontSize: 20,

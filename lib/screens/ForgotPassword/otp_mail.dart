@@ -1,7 +1,6 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:games4u/shared/otpgen1.dart';
 import 'package:games4u/shared/password_update.dart';
 
 class OtpEmailPage extends StatefulWidget {
@@ -53,7 +52,7 @@ class _OtpEmailPageState extends State<OtpEmailPage> {
             SizedBox(
               height: 50,
             ),
-            OtpField(),
+            // OtpField(),
             SizedBox(
               height: 15,
             ),
