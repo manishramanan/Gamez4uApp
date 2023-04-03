@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:games4u/screens/Responsive/responsive.dart';
 import 'package:games4u/screens/api.dart';
 import 'package:games4u/shared/menu_drawer.dart';
-import 'package:auto_size_text/auto_size_text.dart';
+//import 'package:auto_size_text/auto_size_text.dart';
 //import 'package:http/http.dart' as http;
 //import 'dart:convert';
 //import 'package:games4u/model/Homepagemodel.dart';
@@ -132,7 +132,7 @@ class _HomeNewState extends State<HomeNew> {
                   tab: Gamesname1(),
                 ),
               ),
-              const AutoSizeText(
+              const Text(
                 'UPCOMING TOURNAMNETS',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -152,7 +152,7 @@ class _HomeNewState extends State<HomeNew> {
               const ApiSponsers(),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
-                child: AutoSizeText(
+                child: Text(
                   "ACADEMY NEAR ME",
                   style: TextStyle(
                       fontSize: 17,
@@ -181,7 +181,7 @@ class _HomeNewState extends State<HomeNew> {
                     ],
                   ),
                   child: const Center(
-                    child: AutoSizeText(
+                    child: Text(
                       'CURRENT NEWS',
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
@@ -194,7 +194,7 @@ class _HomeNewState extends State<HomeNew> {
               ),
               const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 30),
-                child: AutoSizeText(
+                child: Text(
                   "The Athletic delivers powerful stories and smart analysis that bring sports fans closer to the heart of the game.",
                   maxLines: 3,
                   style: TextStyle(
@@ -245,7 +245,7 @@ class _HomeNewState extends State<HomeNew> {
                               mainAxisAlignment: MainAxisAlignment.spaceAround,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                const AutoSizeText(
+                                const Text(
                                   'Sai Vishal',
                                   style: TextStyle(
                                     fontSize: 16,
@@ -255,7 +255,7 @@ class _HomeNewState extends State<HomeNew> {
                                   ),
                                 ),
                                 const Spacer(),
-                                const AutoSizeText(
+                                const Text(
                                   'The Athletic delivers powerful stories.',
                                   style: TextStyle(
                                     fontSize: 13,

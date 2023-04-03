@@ -40,7 +40,7 @@ import 'package:games4u/shared/password_update.dart ';
 import 'package:games4u/shared/menu_drawer.dart';
 import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/shared/customform.dart';
-import 'package:sizer/sizer.dart';
+//import 'package:sizer/sizer.dart';
 
 import 'homescreen1.dart';
 
