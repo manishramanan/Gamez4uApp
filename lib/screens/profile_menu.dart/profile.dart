@@ -192,55 +192,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
             flex: 9,
             child: EditableTextFormField(),
           ),
-
-          // Expanded(
-          //     flex: 2,
-          //     child: Column(
-          //       children: [
-          //         Text(
-          //           'Gender',
-          //           style: TextStyle(fontSize: 16.0),
-          //         ),
-          //         RadioListTile<Gender>(
-          //           title: const Text('Male'),
-          //           value: Gender.male,
-          //           groupValue: gender,
-          //           onChanged: (value) {
-          //             setState(() {
-          //               gender = value!;
-          //             });
-          //           },
-          //         ),
-          //         RadioListTile<Gender>(
-          //           title: const Text('Female'),
-          //           value: Gender.female,
-          //           groupValue: gender,
-          //           onChanged: (value) {
-          //             setState(() {
-          //               gender = value!;
-          //             });
-          //           },
-          //         ),
-          //       ],
-          //     )),
-          // DropdownButtonFormField(
-          //   decoration: InputDecoration(),
-          //   value: gender,
-          //   items: ['Male', 'Female'].map((gender) {
-          //     return DropdownMenuItem(
-          //       value: gender,
-          //       child: Text(gender),
-          //     );
-          //   }).toList(),
-          //   onChanged: (value) => setState(() => gender = value),
-          //   validator: (value) {
-          //     if (value == null) {
-          //       return 'Please select a gender';
-          //     } else {
-          //       return null;
-          //     }
-          //   },
-          // ),
         ],
       ),
     );

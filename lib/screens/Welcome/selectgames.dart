@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/homescreen.dart';
+import 'package:games4u/homescreen1.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});
@@ -133,7 +133,7 @@ class _ThirdPageState extends State<ThirdPage> {
                               child: ElevatedButton(
                                 onPressed: () {
                                   Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (context) => const HomeScreen(),
+                                    builder: (context) => const HomeNew(),
                                   ));
                                 },
                                 child: const Text(

@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
-import '../Quiz/quizWelcome.dart';
-import '../Quiz/quizquestions.dart';
 import 'Cricket_academy1.dart';
-//import 'Cricket_acadamey1.dart';
 
 class CrickAcademyPage extends StatefulWidget {
   const CrickAcademyPage({super.key});
