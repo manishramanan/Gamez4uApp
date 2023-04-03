@@ -7,14 +7,14 @@ class SubPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextStyle myStyle = TextStyle(
+    TextStyle myStyle = const TextStyle(
       fontSize: 14,
       color: Colors.black,
     );
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Color(0xFF00A4E4),
+      backgroundColor: const Color(0xFF00A4E4),
       extendBodyBehindAppBar: true,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -40,7 +40,7 @@ class SubPage extends StatelessWidget {
                 //  IconButton(onPressed: (() {}), icon: Icon(Icons.arrow_back)),
                 Padding(
                   padding: EdgeInsets.only(top: height * 0.06),
-                  child: Image(
+                  child: const Image(
                     alignment: Alignment.topCenter,
                     image: AssetImage("images/subscri_pic.png"),
                   ),
@@ -48,7 +48,7 @@ class SubPage extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(top: height * 0.02),
                   child: Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: Color(0xFF00A4E4),
                       // border: Border.all(color: Colors.grey),
                       // borderRadius: BorderRadius.all(Radius.circular(10)),
@@ -77,7 +77,7 @@ class SubPage extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Padding(
-                              padding: EdgeInsets.all(0),
+                              padding: const EdgeInsets.all(0),
                               child: ElevatedButton(
                                 style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
@@ -87,7 +87,8 @@ class SubPage extends StatelessWidget {
                                   ),
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(20),
-                                    side: BorderSide(color: Color(0xFF00A4E4)),
+                                    side: const BorderSide(
+                                        color: Color(0xFF00A4E4)),
                                   ),
                                   elevation: 10,
                                 ),
@@ -116,7 +117,7 @@ class SubPage extends StatelessWidget {
                                         '3 months',
                                         style: TextStyle(
                                             fontSize: width * 0.05,
-                                            color: Color(0xFF00A4E4)),
+                                            color: const Color(0xFF00A4E4)),
                                       ),
                                     ],
                                   ),
@@ -132,7 +133,7 @@ class SubPage extends StatelessWidget {
                                 ),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
-                                  side: BorderSide(
+                                  side: const BorderSide(
                                     color: Color(0xFF00A4E4),
                                   ),
                                 ),
@@ -171,7 +172,7 @@ class SubPage extends StatelessWidget {
                                       '₹ 499',
                                       style: TextStyle(
                                           fontSize: width * 0.05,
-                                          color: Color(0xFF00A4E4)),
+                                          color: const Color(0xFF00A4E4)),
                                     ),
                                   ),
                                 ],
@@ -193,7 +194,8 @@ class SubPage extends StatelessWidget {
                               ),
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
-                                  side: BorderSide(color: Color(0xFF00A4E4))),
+                                  side: const BorderSide(
+                                      color: Color(0xFF00A4E4))),
                               elevation: 20,
                             ),
                             onPressed: () {},
@@ -219,7 +221,7 @@ class SubPage extends StatelessWidget {
                                   '₹ 99',
                                   style: TextStyle(
                                       fontSize: width * 0.06,
-                                      color: Color(0xFF00A4E4)),
+                                      color: const Color(0xFF00A4E4)),
                                 ),
                               ],
                             ),
@@ -239,7 +241,7 @@ class SubPage extends StatelessWidget {
                       "Restore Subscription",
                       style: TextStyle(
                         fontSize: width * 0.055,
-                        color: Color(0xFF00A4E4),
+                        color: const Color(0xFF00A4E4),
                       ),
                     ),
                   ),

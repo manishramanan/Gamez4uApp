@@ -478,13 +478,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             label: 'Add',
           ),
-          // BottomNavigationBarItem(
-          //   icon: Icon(
-          //     Icons.four_g_plus_mobiledata_outlined,
-          //     color: Colors.black,
-          //   ),
-          //   label: 'Global',
-          // ),
+          
           BottomNavigationBarItem(
             icon: Icon(
               Icons.message_outlined,
@@ -555,13 +549,14 @@ class Reusablecode extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(5),
       child: Container(
-        height: 32,
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height * 0.1,
         alignment: Alignment.center,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(6),
           color: Colors.white,
         ),
-        child: Center(
+        child: Center( 
           child: txt,
         ),
       ),

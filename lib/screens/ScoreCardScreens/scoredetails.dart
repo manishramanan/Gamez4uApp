@@ -126,49 +126,51 @@ class _HomePageScreenState extends State<HomePageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-      physics: const NeverScrollableScrollPhysics(),
-      shrinkWrap: true,
-      itemCount: data.length,
-      itemBuilder: (_, index) {
-        if (index == 0) {
-          return Column(
-            children: [
-              // The header
-              Container(
-                color: Color.fromARGB(255, 214, 210, 210),
-                child: ListTile(
-                  leading: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.25,
-                    child: Align(
-                      alignment: Alignment.centerLeft,
-                      child: Text(
-                        'Batting',
-                        style: TextStyle(fontSize: 16),
+    return Material(
+      child: ListView.builder(
+        physics: const NeverScrollableScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: data.length,
+        itemBuilder: (_, index) {
+          if (index == 0) {
+            return Column(
+              children: [
+                // The header
+                Container(
+                  color: Color.fromARGB(255, 214, 210, 210),
+                  child: ListTile(
+                    leading: SizedBox(
+                      width: MediaQuery.of(context).size.width * 0.25,
+                      child: Align(
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          'Batting',
+                          style: TextStyle(fontSize: 16),
+                        ),
                       ),
                     ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text('R'),
+                        Text('B'),
+                        Text("4s"),
+                        Text("6s"),
+                      ],
+                    ),
+                    trailing: Text("SR"),
                   ),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Text('R'),
-                      Text('B'),
-                      Text("4s"),
-                      Text("6s"),
-                    ],
-                  ),
-                  trailing: Text("SR"),
                 ),
-              ),
 
-              // The fist list item
-              _listItem(index),
-            ],
-          );
-        }
-        return _listItem(index);
-      },
+                // The fist list item
+                _listItem(index),
+              ],
+            );
+          }
+          return _listItem(index);
+        },
+      ),
     );
   }
 }

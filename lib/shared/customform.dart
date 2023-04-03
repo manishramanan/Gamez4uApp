@@ -42,7 +42,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                   },
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
@@ -55,7 +54,6 @@ class MyCustomFormState extends State<MyCustomForm> {
                   },
                 ),
               ),
-
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
@@ -70,50 +68,8 @@ class MyCustomFormState extends State<MyCustomForm> {
                   },
                 ),
               ),
-
               DateUI(
                   _date, "DOB", "Enter DOB", () => {datepicker(_date)}, true),
-
-              // Padding(
-              //   padding: const EdgeInsets.all(8.0),
-
-              //   child: TextFormField(
-              //     decoration: InputDecoration(
-              //         labelText: 'Enter DOB', hintText: 'DD/MM/YYYY'),
-              //     validator: (value) {
-              //       if (!RegExp(
-              //               r"^(?:0[1-9]|[12]\d|3[01])([\/.-])(?:0[1-9]|1[012])\1(?:19|20)\d\d$")
-              //           .hasMatch(value!)) {
-              //         return 'Enter a valid date of birth';
-              //       }
-              //       return null;
-              //     },
-              //   ),
-              // ),
-              // Text(
-              //   'Gender',
-              //   style: TextStyle(fontSize: 16.0),
-              // ),
-              // RadioListTile<Gender>(
-              //   title: const Text('Male'),
-              //   value: Gender.male,
-              //   groupValue: gender,
-              //   onChanged: (value) {
-              //     setState(() {
-              //       gender = value!;
-              //     });
-              //   },
-              // ),
-              // RadioListTile<Gender>(
-              //   title: const Text('Female'),
-              //   value: Gender.female,
-              //   groupValue: gender,
-              //   onChanged: (value) {
-              //     setState(() {
-              //       gender = value!;
-              //     });
-              //   },
-              // ),
               Padding(
                 padding: const EdgeInsets.only(top: 50),
                 child: Align(
