@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:games4u/model/Homepagemodel.dart';
 import 'package:http/http.dart' as http;
-import 'Academy/Cricket_academy.dart';
+import '../screens/Academy/Cricket_academy.dart';
+import 'package:games4u/Network/endpoints.dart';
 
 // ignore: must_be_immutable
 class ExampleOne extends StatefulWidget {
@@ -16,8 +17,7 @@ class _ExampleOneState extends State<ExampleOne> {
   Future<List<User>> usersFuture = getUsers();
   //Api for Academy
   static Future<List<User>> getUsers() async {
-    const url =
-        "https://beosports-webapi.onrender.com/api/1/AcademyMaster/academies";
+    const url = "${Endpoints.baseURL}/api/1/AcademyMaster/academies";
     final response = await http.get(Uri.parse(url), headers: {
       "x-authkey": "uynjsykkloye679km@~556HHTrMolews",
       "Content-type": "application/json",
@@ -123,6 +123,95 @@ class _ExampleOneState extends State<ExampleOne> {
       });
 }
 
+// ignore: must_be_immutable
+class ApiSports extends StatelessWidget {
+  ApiSports({super.key});
+
+  Future<List<Sports>> usersSports = getSports();
+  //Api for Academy
+  static Future<List<Sports>> getSports() async {
+    const url = "${Endpoints.baseURL}/api/1/SportsMaster/sports";
+    final response = await http.get(Uri.parse(url), headers: {
+      "x-authkey": "uynjsykkloye679km@~556HHTrMolews",
+      "Content-type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    });
+
+    final body = json.decode(response.body);
+    return body.map<Sports>(Sports.fromJson).toList();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Material(
+        type: MaterialType.transparency,
+        child: FutureBuilder<List<Sports>>(
+          future: usersSports,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              // ignore: unused_local_variable
+              final sportsusers = snapshot.data!;
+              return buildSports(sportsusers);
+            } else {
+              return const Text("No user data");
+            }
+          },
+        ),
+      ),
+    );
+  }
+
+  Widget buildSports(List<Sports> sports) => ListView.builder(
+        scrollDirection: Axis.horizontal,
+        physics: const ScrollPhysics(),
+        shrinkWrap: true,
+        itemCount: sports.length,
+        itemBuilder: (context, index) {
+          // ignore: unused_local_variable
+          final usersports = sports[index];
+          return Row(
+            children: [
+              ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.white,
+                ),
+                onPressed: () {},
+                child: Text(
+                  usersports.sportName,
+                  style: const TextStyle(
+                      fontSize: 15,
+                      fontFamily: "gilroy",
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black),
+                ),
+              ),
+              const SizedBox(width: 15),
+            ],
+          );
+          // return Container(
+          //   color: Colors.grey,
+          //   height: 10,
+          //   width: MediaQuery.of(context).size.width / 3,
+          //   child: ElevatedButton(
+          //     style: ElevatedButton.styleFrom(
+          //         // minimumSize: Size( MediaQuery.of(context).size.width /5,  MediaQuery.of(context).size.height * 0.5),
+          //         ),
+          //     onPressed: () {},
+          //     child: Text(
+          //       usersports.sportName,
+          //       style: const TextStyle(
+          //           fontSize: 15,
+          //           fontFamily: "gilroy",
+          //           fontWeight: FontWeight.bold,
+          //           color: Colors.black),
+          //     ),
+          //   ),
+          // );
+        },
+      );
+}
+
 class ApiTourt extends StatefulWidget {
   const ApiTourt({super.key});
 
@@ -134,8 +223,7 @@ class _ApiTourtState extends State<ApiTourt> {
   Future<List<Tourm>> usersTourm = getTourm();
 
   static Future<List<Tourm>> getTourm() async {
-    const url =
-        "https://beosports-webapi.onrender.com/api/1/TournamentMaster/tournaments";
+    const url = "${Endpoints.baseURL}/api/1/TournamentMaster/tournaments";
     final response = await http.get(Uri.parse(url), headers: {
       "x-authkey": "uynjsykkloye679km@~556HHTrMolews",
       "Content-type": "application/json",
@@ -155,21 +243,23 @@ class _ApiTourtState extends State<ApiTourt> {
   @override
   Widget build(BuildContext context) {
     return Material(
+        type: MaterialType.transparency,
         child: FutureBuilder<List<Tourm>>(
-      future: usersTourm,
-      builder: (context, snapshot) {
-        if (snapshot.hasData) {
-          // ignore: unused_local_variable
-          final tourms = snapshot.data!;
-          return Expanded(
-            flex: 1,
-            child: buildTourm(tourms),
-          );
-        } else {
-          return const Text("No user data");
-        }
-      },
-    ));
+          future: usersTourm,
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
+              // ignore: unused_local_variable
+              final tourms = snapshot.data!;
+              return SizedBox(
+                height: MediaQuery.of(context).size.height * 0.1,
+                width: MediaQuery.of(context).size.width,
+                child: buildTourm(tourms),
+              );
+            } else {
+              return const Text("No user data");
+            }
+          },
+        ));
   }
 
   Widget buildTourm(List<Tourm> tourms) => ListView.builder(
@@ -183,21 +273,15 @@ class _ApiTourtState extends State<ApiTourt> {
           return Container(
             width: MediaQuery.of(context).size.width / 4,
             // height: MediaQuery.of(context).size.height * 0.1,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               // borderRadius: BorderRadius.circular(10),
               shape: BoxShape.circle,
               image: DecorationImage(
-                image: NetworkImage("images/kabaddi.jpg"),
+                image: NetworkImage(tournament.logoPath),
                 fit: BoxFit.cover,
               ),
             ),
           );
-          // return CircleAvatar(
-          //   backgroundImage: AssetImage("images/kabaddi.jpg"),
-
-          //   minRadius: 50,
-          //   // maxRadius: 75,
-          // );
         },
       );
 }
@@ -214,8 +298,7 @@ class _ApiSponsersState extends State<ApiSponsers> {
   Future<List<Sponser>> usersSponser = getSponsers();
 
   static Future<List<Sponser>> getSponsers() async {
-    const url =
-        "https://beosports-webapi.onrender.com/api/1/SponsorMaster/sponsors";
+    const url = "${Endpoints.baseURL}/api/1/SponsorMaster/sponsors";
     final response = await http.get(Uri.parse(url), headers: {
       "x-authkey": "uynjsykkloye679km@~556HHTrMolews",
       "Content-type": "application/json",

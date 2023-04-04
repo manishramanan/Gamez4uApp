@@ -1,6 +1,34 @@
 // ignore: file_names
 import 'dart:convert';
 
+List<Sports> sportsFromJson(String str) => List<Sports>.from(json.decode(str).map((x) => Sports.fromJson(x)));
+
+String sportsToJson(List<Sports> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+
+class Sports {
+    Sports({
+        required this.id,
+        required this.sportType,
+        required this.sportName,
+    });
+
+    String id;
+    String sportType;
+    String sportName;
+
+    factory Sports.fromJson(json) => Sports(
+        id: json["id"],
+        sportType: json["sportType"],
+        sportName: json["sportName"],
+    );
+
+    Map<String, dynamic> toJson() => {
+        "id": id,
+        "sportType": sportType,
+        "sportName": sportName,
+    };
+}
+
 List<User> userFromJson(String str) =>
     List<User>.from(json.decode(str).map((x) => User.fromJson(x)));
 
