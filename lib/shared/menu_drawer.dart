@@ -7,9 +7,8 @@ import 'package:games4u/screens/Quiz/quizWelcome.dart';
 import 'package:games4u/screens/ScoreCardScreens/youtube.dart';
 import 'package:games4u/screens/StartMatch/Tournament/Tournament1.dart';
 import 'package:games4u/screens/StartMatch/select_text.dart';
-import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/screens/Subscrption/subscription.dart';
-
+import '../screens/homescreen_new.dart';
 import '../screens/login.dart';
 import '../screens/profile_menu.dart/user.dart';
 
@@ -62,7 +61,7 @@ class MenuDrawer extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => const HomeScreen(),
+                  builder: (context) => const HomeNew(),
                 ),
               );
             },

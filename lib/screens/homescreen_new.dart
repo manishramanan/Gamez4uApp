@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:games4u/screens/Responsive/responsive.dart';
-import 'package:games4u/screens/api.dart';
+import 'package:games4u/api_services/home.dart';
 import 'package:games4u/shared/menu_drawer.dart';
-//import 'package:auto_size_text/auto_size_text.dart';
-//import 'package:http/http.dart' as http;
-//import 'dart:convert';
-//import 'package:games4u/model/Homepagemodel.dart';
 
 class HomeNew extends StatefulWidget {
   const HomeNew({super.key});
@@ -66,6 +62,7 @@ class _HomeNewState extends State<HomeNew> {
       drawer: const Drawer(
         child: MenuDrawer(),
       ),
+      
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -125,13 +122,14 @@ class _HomeNewState extends State<HomeNew> {
           ),
           child: Column(
             children: [
-              Expanded(
-                flex: 1,
-                child: ResponsiveWidget1(
-                  mobile: Gamesname(),
-                  tab: Gamesname1(),
-                ),
-              ),
+              Expanded(flex: 1,child: ApiSports()),
+              // Expanded(
+              //   flex: 1,
+              //   child: ResponsiveWidget1(
+              //     mobile: Gamesname(),
+              //     tab: Gamesname1(),
+              //   ),
+              // ),
               const Text(
                 'UPCOMING TOURNAMNETS',
                 style: TextStyle(
@@ -141,14 +139,17 @@ class _HomeNewState extends State<HomeNew> {
                     fontFamily: "Gilroy"),
                 textAlign: TextAlign.center,
               ),
-             // const ApiTourt(),
-              Expanded(
-                flex: 1,
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: ResponsiveWidget(mobile: images2(), tab: images1()),
-                ),
+              const Padding(
+                padding:  EdgeInsets.symmetric(vertical: 10),
+                child:  ApiTourt(),
               ),
+              // Expanded(
+              //   flex: 1,
+              //   child: Padding(
+              //     padding: const EdgeInsets.symmetric(vertical: 10),
+              //     child: ResponsiveWidget(mobile: images2(), tab: images1()),
+              //   ),
+              // ),
               const ApiSponsers(),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),

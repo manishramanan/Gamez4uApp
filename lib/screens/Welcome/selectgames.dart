@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/homescreen1.dart';
+import 'package:games4u/screens/homescreen_new.dart';
 
 class ThirdPage extends StatefulWidget {
   const ThirdPage({super.key});

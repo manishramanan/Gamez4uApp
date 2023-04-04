@@ -18,7 +18,6 @@ import 'package:games4u/screens/ScoreCardScreens/Scoreboard_tab.dart';
 import 'package:games4u/screens/Invite/alert_invite.dart';
 import 'package:games4u/screens/Welcome/Thirdpage.dart';
 import 'package:games4u/screens/Welcome/second.dart';
-import 'package:games4u/screens/api.dart';
 import 'package:games4u/screens/board.dart';
 import 'package:games4u/screens/history.dart';
 import 'package:games4u/screens/Invite/invite.dart';
@@ -38,11 +37,9 @@ import 'package:games4u/screens/Welcome/selectgames.dart';
 import 'package:games4u/screens/ScoreCardScreens/youtube.dart';
 import 'package:games4u/shared/password_update.dart ';
 import 'package:games4u/shared/menu_drawer.dart';
-import 'package:games4u/screens/homescreen.dart';
 import 'package:games4u/shared/customform.dart';
-//import 'package:sizer/sizer.dart';
 
-import 'homescreen1.dart';
+import 'screens/homescreen_new.dart';
 
 void main() {
   runApp(const MyApp());

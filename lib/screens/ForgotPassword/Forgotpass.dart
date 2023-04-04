@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:games4u/screens/ForgotPassword/otp_mail.dart';
 
 class ForgotpassScreen extends StatelessWidget {
+  const ForgotpassScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,10 +20,10 @@ class ForgotpassScreen extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: <Widget>[
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
-            Align(
+            const Align(
               alignment: Alignment.center,
               child: Icon(
                 Icons.lock,
@@ -29,10 +31,10 @@ class ForgotpassScreen extends StatelessWidget {
                 color: Colors.cyan,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 3,
             ),
-            Align(
+            const Align(
               alignment: Alignment.center,
               child: Text(
                 '\t \t FORGOT \n PASSWORD',
@@ -43,24 +45,24 @@ class ForgotpassScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Align(
+            const Align(
               alignment: Alignment.center,
               child: Text(
                 '\t  Enter your email for verification \n \t \t  Process , We will send 4 digit \n \t \t \t \t \t \t  code  to your email.',
-                style: const TextStyle(
+                style:  TextStyle(
                     color: Colors.black, fontWeight: FontWeight.w500),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
             Container(
               width: 260,
               // height: 50,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 // border: Border.all(
                 //     color: Color.fromARGB(255, 175, 228, 235), width: 2),
                 shape: BoxShape.rectangle,
@@ -72,7 +74,7 @@ class ForgotpassScreen extends StatelessWidget {
                   fontSize: 20,
                 ),
                 decoration: const InputDecoration(
-                  prefixIcon: const Icon(
+                  prefixIcon:  Icon(
                     Icons.email,
                     color: Colors.black,
                   ),
@@ -83,10 +85,10 @@ class ForgotpassScreen extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 40,
             ),
-            Container(
+            SizedBox(
               width: 260,
               child: ElevatedButton(
                   // onPressed: _buttonEnabled
@@ -105,7 +107,7 @@ class ForgotpassScreen extends StatelessWidget {
                         MaterialPageRoute(
                             builder: (context) => const OtpEmailPage()));
                   }),
-                  child: Padding(
+                  child: const Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Text('NEXT',
                         style: TextStyle(

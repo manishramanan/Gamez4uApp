@@ -22,8 +22,8 @@ class SubPage extends StatelessWidget {
       ),
       body: SafeArea(
         child: Container(
-          height: double.infinity,
-          width: double.infinity,
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           decoration: const BoxDecoration(
             gradient: LinearGradient(
               colors: [
@@ -38,12 +38,9 @@ class SubPage extends StatelessWidget {
             child: Column(
               children: [
                 //  IconButton(onPressed: (() {}), icon: Icon(Icons.arrow_back)),
-                Padding(
-                  padding: EdgeInsets.only(top: height * 0.06),
-                  child: const Image(
-                    alignment: Alignment.topCenter,
-                    image: AssetImage("images/subscri_pic.png"),
-                  ),
+                const Image(
+                  alignment: Alignment.topCenter,
+                  image: AssetImage("images/subscri_pic.png"),
                 ),
                 Padding(
                   padding: EdgeInsets.only(top: height * 0.02),

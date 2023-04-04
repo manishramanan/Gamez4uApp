@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:games4u/Network/endpoints.dart';
-import '../model/subscriptionmodel.dart';
+import '../model/sunscriptionmodel.dart';
 
 // ignore: must_be_immutable
 class ApiSub extends StatelessWidget {
