@@ -3,6 +3,7 @@ import 'package:games4u/screens/profile_menu.dart/profile.dart';
 
 import '../Password Change/changepassword.dart';
 import '../ScoreCardScreens/scoredetails.dart';
+import '../history.dart';
 
 class UserPage extends StatefulWidget {
   const UserPage({super.key});
@@ -14,6 +15,7 @@ class UserPage extends StatefulWidget {
 class _UserPageState extends State<UserPage> {
   List<String> myItems = [
     "My Profile",
+    "History",
     "Notification",
     "Theme",
     "Payments",
@@ -23,6 +25,7 @@ class _UserPageState extends State<UserPage> {
   ];
   List<IconData> icons1 = [
     Icons.person_3_outlined,
+    Icons.history,
     Icons.notifications,
     Icons.color_lens,
     Icons.payment,
@@ -38,9 +41,11 @@ class _UserPageState extends State<UserPage> {
     Icons.arrow_forward_ios,
     Icons.arrow_forward_ios,
     Icons.arrow_forward_ios,
+    Icons.arrow_forward_ios,
   ];
   List<Widget> screens = [
     const ProfileScreen(),
+    const HistoryPage(),
     const UserPage(),
     const UserPage(),
     const UserPage(),

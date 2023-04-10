@@ -8,7 +8,7 @@ import 'package:games4u/screens/PhoneNumber/Verify_phone.dart';
 import 'package:games4u/screens/Quiz/quizquestions.dart';
 import 'package:games4u/screens/ScoreCardScreens/scoredetails.dart';
 import 'package:games4u/screens/StartMatch/Tournament/Tournament1.dart';
-import 'package:games4u/screens/MyGames/create_team.dart';
+import 'package:games4u/screens/MyGames/add_team.dart';
 import 'package:games4u/screens/StartMatch/Tournament/create_tournament.dart';
 import 'package:games4u/screens/StartMatch/selectA.dart';
 import 'package:games4u/screens/StartMatch/select_text.dart';
@@ -16,6 +16,7 @@ import 'package:games4u/screens/StartMatch/selectplayer.dart';
 import 'package:games4u/screens/StartMatch/startmatch.dart';
 import 'package:games4u/screens/ScoreCardScreens/Scoreboard_tab.dart';
 import 'package:games4u/screens/Invite/alert_invite.dart';
+import 'package:games4u/screens/Subscrption/subscription.dart';
 import 'package:games4u/screens/Welcome/Thirdpage.dart';
 import 'package:games4u/screens/Welcome/second.dart';
 import 'package:games4u/screens/board.dart';
@@ -30,7 +31,6 @@ import 'package:games4u/screens/Logoscreen.dart';
 import 'package:games4u/screens/upload_video.dart';
 import 'package:games4u/screens/welcome.dart';
 import 'package:games4u/screens/ForgotPassword/Forgotpass.dart';
-import 'package:games4u/screens/ForgotPassword/otp_mail.dart';
 import 'package:games4u/screens/profile_menu.dart/profile.dart';
 import 'package:games4u/screens/Welcome/Firstpage.dart';
 import 'package:games4u/screens/Welcome/selectgames.dart';
@@ -38,7 +38,9 @@ import 'package:games4u/screens/ScoreCardScreens/youtube.dart';
 import 'package:games4u/shared/password_update.dart ';
 import 'package:games4u/shared/menu_drawer.dart';
 import 'package:games4u/shared/customform.dart';
-
+import 'screens/ForgotPassword/otp_mail_new.dart';
+import 'screens/MyGames/add_team_api.dart';
+import 'screens/MyGames/my_team.dart';
 import 'screens/homescreen_new.dart';
 
 void main() {
@@ -50,8 +52,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: HomeNew(),
+    return MaterialApp(
+      home: MyGamesPage(),
       debugShowCheckedModeBanner: false,
     );
   }

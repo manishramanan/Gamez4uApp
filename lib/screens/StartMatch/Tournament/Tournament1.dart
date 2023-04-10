@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/Invite/invite.dart';
-
-import '../../history.dart';
 import 'create_tournament.dart';
 
 class TournamentPage extends StatelessWidget {
@@ -147,9 +144,9 @@ class TournamentPage extends StatelessWidget {
           ),
         ),
         onPressed: () {
-          Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => HistoryPage(),
-          ));
+          // Navigator.of(context).push(MaterialPageRoute(
+          //   builder: (context) => HistoryPage(),
+          // ));
         },
         child: const Text(
           "PLAYER",

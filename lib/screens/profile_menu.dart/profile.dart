@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/shared/customform.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'dart:io';
 import 'package:image_picker/image_picker.dart';
 
@@ -19,6 +17,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   File? _image;
 
   Future<void> _getImageFromCamera() async {
+    // ignore: deprecated_member_use
     final image = await ImagePicker().getImage(source: ImageSource.camera);
     if (image != null) {
       setState(() {
@@ -28,6 +27,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   Future<void> _getImageFromGallery() async {
+    // ignore: deprecated_member_use
     final image = await ImagePicker().getImage(source: ImageSource.gallery);
     if (image != null) {
       setState(() {
@@ -49,7 +49,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
-        title: Text(
+        title:const Text(
           'Profile',
           style: TextStyle(color: Colors.white),
         ),
@@ -60,7 +60,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
             child: Expanded(
               flex: 4,
               child: Container(
-                decoration: BoxDecoration(
+                decoration:const BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.fitWidth,
                         alignment: Alignment.topCenter,
@@ -83,11 +83,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             child: GestureDetector(
                               child: CircleAvatar(
                                 radius: 65,
-                                backgroundColor: Color(0xFF00A4E4),
+                                backgroundColor:const Color(0xFF00A4E4),
                                 backgroundImage:
                                     _image != null ? FileImage(_image!) : null,
                                 child: _image == null
-                                    ? Icon(
+                                    ? const Icon(
                                         Icons.people,
                                         size: 55,
                                         color: Colors.white,
@@ -99,21 +99,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   context: context,
                                   builder: (context) {
                                     return AlertDialog(
-                                      title: Text('Choose Image'),
+                                      title:const Text('Choose Image'),
                                       content: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: <Widget>[
                                           ListTile(
-                                            leading: Icon(Icons.camera),
-                                            title: Text('Take a picture'),
+                                            leading:const Icon(Icons.camera),
+                                            title:const Text('Take a picture'),
                                             onTap: () {
                                               Navigator.pop(context);
                                               _getImageFromCamera();
                                             },
                                           ),
                                           ListTile(
-                                            leading: Icon(Icons.image),
-                                            title: Text('Choose from gallery'),
+                                            leading:const Icon(Icons.image),
+                                            title:const Text('Choose from gallery'),
                                             onTap: () {
                                               Navigator.pop(context);
                                               _getImageFromGallery();
@@ -131,7 +131,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                             bottom: 0,
                             right: 0,
                             child: IconButton(
-                              icon: Icon(
+                              icon:const Icon(
                                 Icons.add_photo_alternate,
                                 size: 35,
                                 color: Colors.black54,
@@ -141,21 +141,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   context: context,
                                   builder: (context) {
                                     return AlertDialog(
-                                      title: Text('Choose Image'),
+                                      title:const Text('Choose Image'),
                                       content: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: <Widget>[
                                           ListTile(
-                                            leading: Icon(Icons.camera),
-                                            title: Text('Take a picture'),
+                                            leading:const Icon(Icons.camera),
+                                            title:const Text('Take a picture'),
                                             onTap: () {
                                               Navigator.pop(context);
                                               _getImageFromCamera();
                                             },
                                           ),
                                           ListTile(
-                                            leading: Icon(Icons.image),
-                                            title: Text('Choose from gallery'),
+                                            leading:const Icon(Icons.image),
+                                            title:const Text('Choose from gallery'),
                                             onTap: () {
                                               Navigator.pop(context);
                                               _getImageFromGallery();
@@ -171,8 +171,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                           ),
                         ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(10),
+                     const Padding(
+                        padding:  EdgeInsets.all(10),
                         child: Text(
                           "VISHAL",
                           style: TextStyle(

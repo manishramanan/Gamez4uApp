@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/ForgotPassword/otp_mail.dart';
+import 'otp_mail_new.dart';
 
 class ForgotpassScreen extends StatelessWidget {
   const ForgotpassScreen({super.key});
@@ -105,7 +105,7 @@ class ForgotpassScreen extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const OtpEmailPage()));
+                            builder: (context) => const OtpForget()));
                   }),
                   child: const Padding(
                     padding: const EdgeInsets.all(8.0),

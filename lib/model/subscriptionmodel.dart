@@ -1,11 +1,11 @@
 import 'dart:convert';
 
-List<Sub> subFromJson(String str) => List<Sub>.from(json.decode(str).map((x) => Sub.fromJson(x)));
+List<Subscription> subscriptionFromJson(String str) => List<Subscription>.from(json.decode(str).map((x) => Subscription.fromJson(x)));
 
-String subToJson(List<Sub> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String subscriptionToJson(List<Subscription> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class Sub {
-    Sub({
+class Subscription {
+    Subscription({
         required this.id,
         required this.plan,
         required this.details,
@@ -21,7 +21,7 @@ class Sub {
     String userType;
     int duration;
 
-    factory Sub.fromJson(Map<String, dynamic> json) => Sub(
+    factory Subscription.fromJson(Map<String, dynamic> json) => Subscription(
         id: json["id"],
         plan: json["plan"],
         details: json["details"],

@@ -61,7 +61,9 @@ class _ExampleOneState extends State<ExampleOne> {
                 child: buildUsers(users),
               );
             } else {
-              return const Text("No user data");
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
           },
         ),
@@ -154,7 +156,9 @@ class ApiSports extends StatelessWidget {
               final sportsusers = snapshot.data!;
               return buildSports(sportsusers);
             } else {
-              return const Text("No user data");
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
           },
         ),
@@ -189,25 +193,6 @@ class ApiSports extends StatelessWidget {
               const SizedBox(width: 15),
             ],
           );
-          // return Container(
-          //   color: Colors.grey,
-          //   height: 10,
-          //   width: MediaQuery.of(context).size.width / 3,
-          //   child: ElevatedButton(
-          //     style: ElevatedButton.styleFrom(
-          //         // minimumSize: Size( MediaQuery.of(context).size.width /5,  MediaQuery.of(context).size.height * 0.5),
-          //         ),
-          //     onPressed: () {},
-          //     child: Text(
-          //       usersports.sportName,
-          //       style: const TextStyle(
-          //           fontSize: 15,
-          //           fontFamily: "gilroy",
-          //           fontWeight: FontWeight.bold,
-          //           color: Colors.black),
-          //     ),
-          //   ),
-          // );
         },
       );
 }
@@ -256,7 +241,9 @@ class _ApiTourtState extends State<ApiTourt> {
                 child: buildTourm(tourms),
               );
             } else {
-              return const Text("No user data");
+              return const Center(
+                child: CircularProgressIndicator(),
+              );
             }
           },
         ));
@@ -352,7 +339,9 @@ class _ApiSponsersState extends State<ApiSponsers> {
             ),
           );
         } else {
-          return const Text("No user data");
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         }
       },
     ));
