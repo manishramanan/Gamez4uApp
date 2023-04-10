@@ -11,17 +11,6 @@ class HomeNew extends StatefulWidget {
 }
 
 class _HomeNewState extends State<HomeNew> {
-  List names = [
-    "Cricket",
-    "Tennis",
-    "Hockey",
-    "Football",
-    "Chess",
-    "Basketball",
-    "Kabaddi",
-    "Baseball",
-    "TableTennis"
-  ];
   int _selectedIndex = 0;
   static const TextStyle optionStyle = TextStyle(
     fontSize: 30,
@@ -59,10 +48,10 @@ class _HomeNewState extends State<HomeNew> {
     return Scaffold(
       backgroundColor: const Color(0xFF00A4E4),
       extendBodyBehindAppBar: true,
-      drawer: const Drawer(
-        child: MenuDrawer(),
+      drawer: Drawer(
+        width: MediaQuery.of(context).size.width * 0.75,
+        child: const MenuDrawer(),
       ),
-      
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -82,7 +71,7 @@ class _HomeNewState extends State<HomeNew> {
               suffixIcon: IconButton(
                 color: Colors.blue,
                 onPressed: (() {}),
-                icon: const Icon(Icons.search), 
+                icon: const Icon(Icons.search),
               ),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
@@ -122,7 +111,7 @@ class _HomeNewState extends State<HomeNew> {
           ),
           child: Column(
             children: [
-              Expanded(flex: 1,child: ApiSports()),
+              Expanded(flex: 1, child: ApiSports()),
               // Expanded(
               //   flex: 1,
               //   child: ResponsiveWidget1(
@@ -140,8 +129,8 @@ class _HomeNewState extends State<HomeNew> {
                 textAlign: TextAlign.center,
               ),
               const Padding(
-                padding:  EdgeInsets.symmetric(vertical: 10),
-                child:  ApiTourt(),
+                padding: EdgeInsets.symmetric(vertical: 10),
+                child: ApiTourt(),
               ),
               // Expanded(
               //   flex: 1,
@@ -271,8 +260,8 @@ class _HomeNewState extends State<HomeNew> {
                                       IconButton(
                                           iconSize: 22,
                                           onPressed: () {},
-                                          icon:
-                                              const Icon(Icons.favorite_border)),
+                                          icon: const Icon(
+                                              Icons.favorite_border)),
                                       IconButton(
                                           iconSize: 20,
                                           onPressed: () {},
@@ -321,317 +310,6 @@ class _HomeNewState extends State<HomeNew> {
         selectedItemColor: const Color(0xFF00A4E4),
         onTap: _onItemTapped,
       ),
-    );
-  }
-
-  Widget gamebuilder(
-      String buttonText, void Function() onPressed, String imagepath) {
-    return Row(
-      children: [
-        TextButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all<Color>(
-              Colors.black,
-            ),
-          ),
-          onPressed: null,
-          child: Text(
-            buttonText,
-            style: const TextStyle(color: Colors.white),
-          ),
-        ),
-        Image(image: AssetImage(imagepath))
-      ],
-    );
-  }
-
-  Widget academy(buttonText, void Function() ontap, String imagePath) {
-    return GestureDetector(
-      onTap: ontap,
-      child: Stack(
-        children: [
-          Container(
-            width: MediaQuery.of(context).size.width / 4.5,
-            height: MediaQuery.of(context).size.height * 0.16,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              shape: BoxShape.rectangle,
-              image: DecorationImage(
-                image: AssetImage(imagePath),
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            right: 0,
-            child: Text(
-              buttonText,
-              style: const TextStyle(
-                  fontFamily: "Gilroy",
-                  fontSize: 10,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold),
-              textAlign: TextAlign.center,
-              maxLines: 2,
-              overflow: TextOverflow.ellipsis,
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget images1() {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: const [
-        Expanded(
-          child: CircleAvatar(
-            foregroundImage: AssetImage("images/kabaddi.jpg"),
-            radius: 50,
-          ),
-        ),
-        Expanded(
-          child: CircleAvatar(
-            foregroundImage: AssetImage("images/basketball123.png"),
-            radius: 50,
-          ),
-        ),
-        Expanded(
-          child: CircleAvatar(
-            foregroundImage: AssetImage("images/hockey.jpg"),
-            radius: 50,
-          ),
-        ),
-        Expanded(
-          child: CircleAvatar(
-            foregroundImage: AssetImage("images/soccer.jpg"),
-            radius: 50,
-          ),
-        ),
-        Expanded(
-          child: CircleAvatar(
-            foregroundImage: AssetImage("images/tenns.jpg"),
-            radius: 50,
-          ),
-        ),
-        Expanded(
-          child: CircleAvatar(
-            foregroundImage: AssetImage("images/cricket.jpg"),
-            radius: 50,
-          ),
-        ),
-      ],
-    );
-  }
-
-  Widget images2() {
-    return SingleChildScrollView(
-      scrollDirection: Axis.horizontal,
-      child: Row(
-        children: const [
-          CircleAvatar(
-            foregroundImage: AssetImage("images/kabaddi.jpg"),
-            radius: 40,
-          ),
-          SizedBox(width: 15),
-          CircleAvatar(
-            foregroundImage: AssetImage("images/basketball123.png"),
-            radius: 40,
-          ),
-          SizedBox(width: 15),
-          CircleAvatar(
-            foregroundImage: AssetImage("images/hockey.jpg"),
-            radius: 40,
-          ),
-          SizedBox(width: 15),
-          CircleAvatar(
-            foregroundImage: AssetImage("images/soccer.jpg"),
-            radius: 40,
-          ),
-          SizedBox(width: 15),
-          CircleAvatar(
-            foregroundImage: AssetImage("images/tenns.jpg"),
-            radius: 40,
-          ),
-          SizedBox(width: 15),
-          CircleAvatar(
-            foregroundImage: AssetImage("images/cricket.jpg"),
-            radius: 40,
-          ),
-        ],
-      ),
-    );
-  }
-
-  // ignore: non_constant_identifier_names
-  Widget Gamesname() {
-    return ListView.builder(
-      scrollDirection: Axis.horizontal,
-      itemCount: names.length,
-      itemBuilder: (context, index) {
-        return Row(
-          children: [
-            ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-              onPressed: () {},
-              child: Text(
-                names[index],
-                style: const TextStyle(
-                    fontSize: 15,
-                    fontFamily: "gilroy",
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black),
-              ),
-            ),
-            const SizedBox(width: 15),
-          ],
-        );
-      },
-    );
-  }
-
-  // ignore: non_constant_identifier_names
-  Widget Gamesname1() {
-    return Row(
-      children: [
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Cricket",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Tennis",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Hockey",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Football",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Chess",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Basketball",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Kabaddi",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "Baseball",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-        const SizedBox(width: 15),
-        Expanded(
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(backgroundColor: Colors.white),
-            onPressed: () {},
-            child: const Text(
-              "TableTennis",
-              style: TextStyle(
-                  fontSize: 15,
-                  fontFamily: "gilroy",
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

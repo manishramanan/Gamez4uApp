@@ -1,11 +1,13 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:image_picker/image_picker.dart';
 
 class ProfilePageScreen extends StatefulWidget {
+  const ProfilePageScreen({super.key});
+
   @override
+  // ignore: library_private_types_in_public_api
   _ProfilePageScreenState createState() => _ProfilePageScreenState();
 }
 
@@ -29,6 +31,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
   File? _image;
 
   Future<void> _getImageFromCamera() async {
+    // ignore: deprecated_member_use
     final image = await ImagePicker().getImage(source: ImageSource.camera);
     if (image != null) {
       setState(() {
@@ -38,6 +41,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
   }
 
   Future<void> _getImageFromGallery() async {
+    // ignore: deprecated_member_use
     final image = await ImagePicker().getImage(source: ImageSource.gallery);
     if (image != null) {
       setState(() {
@@ -46,9 +50,9 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
     }
   }
 
-  TextEditingController _textEditingController1 = TextEditingController();
-  TextEditingController _textEditingController2 = TextEditingController();
-  TextEditingController _textEditingController3 = TextEditingController();
+  final TextEditingController _textEditingController1 = TextEditingController();
+  final TextEditingController _textEditingController2 = TextEditingController();
+  final TextEditingController _textEditingController3 = TextEditingController();
   final _formKey = GlobalKey<FormState>();
 
   bool _validate1 = false;
@@ -57,8 +61,8 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
+    return Material(
+      child: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
@@ -69,11 +73,11 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                     child: GestureDetector(
                       child: CircleAvatar(
                         radius: 62,
-                        backgroundColor: Color(0xFF00A4E4),
+                        backgroundColor: const Color(0xFF00A4E4),
                         backgroundImage:
                             _image != null ? FileImage(_image!) : null,
                         child: _image == null
-                            ? Icon(
+                            ? const Icon(
                                 Icons.people,
                                 size: 50,
                                 color: Colors.white,
@@ -85,21 +89,21 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: Text('Choose Image'),
+                              title: const Text('Choose Image'),
                               content: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   ListTile(
-                                    leading: Icon(Icons.camera),
-                                    title: Text('Take a picture'),
+                                    leading: const Icon(Icons.camera),
+                                    title: const Text('Take a picture'),
                                     onTap: () {
                                       Navigator.pop(context);
                                       _getImageFromCamera();
                                     },
                                   ),
                                   ListTile(
-                                    leading: Icon(Icons.image),
-                                    title: Text('Choose from gallery'),
+                                    leading: const Icon(Icons.image),
+                                    title: const Text('Choose from gallery'),
                                     onTap: () {
                                       Navigator.pop(context);
                                       _getImageFromGallery();
@@ -117,7 +121,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                     bottom: 0,
                     right: 0,
                     child: IconButton(
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.add_photo_alternate,
                         size: 30,
                         color: Colors.white,
@@ -127,21 +131,21 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                           context: context,
                           builder: (context) {
                             return AlertDialog(
-                              title: Text('Choose Image'),
+                              title: const Text('Choose Image'),
                               content: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: <Widget>[
                                   ListTile(
-                                    leading: Icon(Icons.camera),
-                                    title: Text('Take a picture'),
+                                    leading: const Icon(Icons.camera),
+                                    title: const Text('Take a picture'),
                                     onTap: () {
                                       Navigator.pop(context);
                                       _getImageFromCamera();
                                     },
                                   ),
                                   ListTile(
-                                    leading: Icon(Icons.image),
-                                    title: Text('Choose from gallery'),
+                                    leading: const Icon(Icons.image),
+                                    title: const Text('Choose from gallery'),
                                     onTap: () {
                                       Navigator.pop(context);
                                       _getImageFromGallery();
@@ -158,16 +162,9 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                 ],
               ),
               Container(
-                padding: EdgeInsets.all(30),
+                padding: const EdgeInsets.all(30),
                 child: teamFormUI(),
               ),
-              // ElevatedButton(
-              //     onPressed: () {
-              //       Navigator.of(context).push(MaterialPageRoute(
-              //         builder: (context) => StartMatch(),
-              //       ));
-              //     },
-              //     child: Text("Click to Next page "))
             ],
           ),
         ),
@@ -186,11 +183,11 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
             controller: _textEditingController1,
             decoration: InputDecoration(
               contentPadding:
-                  EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
+                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
               labelText: ' Team Name',
               alignLabelWithHint: false,
               filled: true,
-              border: OutlineInputBorder(
+              border: const OutlineInputBorder(
                 borderSide: BorderSide(
                   color: Color(0xFF00A4E4),
                 ),
@@ -211,7 +208,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
             ),
           ),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: 20,),
         FormUIDropDown(
             _gamename, "Game Name", "Game Name", showbusinessVerticaldd, true),
         SizedBox(height: 20),
@@ -223,14 +220,14 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
           decoration: InputDecoration(
             suffixIcon: IconButton(
               onPressed: () {},
-              icon: Icon(Icons.location_on),
+              icon: const Icon(Icons.location_on),
             ),
             contentPadding:
-                EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 10),
             labelText: 'Venue',
             alignLabelWithHint: false,
             filled: true,
-            border: OutlineInputBorder(
+            border: const OutlineInputBorder(
               borderSide: BorderSide(color: Color(0xFF00A4E4)),
             ),
             errorText: _validate3 ? 'Field can\'t be empty' : null,
@@ -258,7 +255,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                 });
               },
             ),
-            Text(
+            const Text(
               "Add myself in team",
               style: TextStyle(
                 color: Colors.black,
@@ -271,7 +268,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
         SizedBox(height: 35),
         ElevatedButton(
           style: ElevatedButton.styleFrom(
-            backgroundColor: Color(0xFF00A4E4),
+            backgroundColor: const Color(0xFF00A4E4),
             padding: const EdgeInsets.symmetric(
               horizontal: 100.0,
               vertical: 18,
@@ -302,7 +299,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                   : _validate3 = false;
             });
           },
-          child: Text(
+          child: const Text(
             'ADD TEAM',
             style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600),
           ),
@@ -316,17 +313,17 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            title: Text("Password Updated"),
+            title: const Text("Password Updated"),
             //AlertDialog: Icon(Icons.one_k_plus),
             actions: <Widget>[
               TextButton(
-                child: Text("OK"),
                 onPressed: (() {
                   // Navigator.push(
                   //     context,
                   //     MaterialPageRoute(
                   //         builder: (context) => const LoginScreen()));
                 }),
+                child: Text("OK"),
               ),
             ],
           );
@@ -340,12 +337,12 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(10.0))),
-            contentPadding: EdgeInsets.only(top: 10.0),
+            contentPadding: const EdgeInsets.only(top: 10.0),
             content: StatefulBuilder(
                 builder: (BuildContext context, StateSetter setState) {
-              return Container(
+              return SizedBox(
                 width: double.maxFinite,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -375,7 +372,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                     SizedBox(
                       height: 5.0,
                     ),
-                    Divider(
+                    const Divider(
                       color: Colors.grey,
                       height: 4.0,
                     ),
@@ -388,10 +385,10 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                         itemBuilder: (context, index) {
                           return RadioListTile(
                             contentPadding:
-                                EdgeInsets.symmetric(horizontal: 5.0),
+                                const EdgeInsets.symmetric(horizontal: 5.0),
                             title: Text(
                               businessVertical[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'Sfpro',
                                 fontSize: 16,
                                 color: Colors.black87,
@@ -415,7 +412,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                     Align(
                       alignment: AlignmentDirectional.bottomEnd,
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -426,16 +423,16 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text(
-                                  'OK',
-                                  style: TextStyle(fontSize: 14.0),
-                                ),
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(15.0)))),
+                                child: const Text(
+                                  'OK',
+                                  style: TextStyle(fontSize: 14.0),
+                                ),
                               ),
                             ),
                           ],
@@ -457,12 +454,12 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
         context: context,
         builder: (BuildContext context) {
           return AlertDialog(
-            shape: RoundedRectangleBorder(
+            shape: const RoundedRectangleBorder(
                 borderRadius: BorderRadius.all(Radius.circular(32.0))),
-            contentPadding: EdgeInsets.only(top: 10.0),
+            contentPadding: const EdgeInsets.only(top: 10.0),
             content: StatefulBuilder(
                 builder: (BuildContext context, StateSetter setState) {
-              return Container(
+              return SizedBox(
                 width: double.maxFinite,
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -492,7 +489,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                     SizedBox(
                       height: 5.0,
                     ),
-                    Divider(
+                    const Divider(
                       color: Colors.grey,
                       height: 4.0,
                     ),
@@ -505,10 +502,10 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                         itemBuilder: (context, index) {
                           return RadioListTile(
                             contentPadding:
-                                EdgeInsets.symmetric(horizontal: 5.0),
+                                const EdgeInsets.symmetric(horizontal: 5.0),
                             title: Text(
                               businessVertically[index],
-                              style: TextStyle(
+                              style: const TextStyle(
                                 fontFamily: 'Sfpro',
                                 fontSize: 16,
                                 color: Colors.black87,
@@ -532,7 +529,7 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                     Align(
                       alignment: AlignmentDirectional.bottomEnd,
                       child: Container(
-                        padding: EdgeInsets.all(15),
+                        padding: const EdgeInsets.all(15),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -543,16 +540,16 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
                                 onPressed: () {
                                   Navigator.of(context).pop();
                                 },
-                                child: const Text(
-                                  'OK',
-                                  style: TextStyle(fontSize: 14.0),
-                                ),
                                 style: ButtonStyle(
                                     shape: MaterialStateProperty.all<
                                             RoundedRectangleBorder>(
                                         RoundedRectangleBorder(
                                             borderRadius:
                                                 BorderRadius.circular(15.0)))),
+                                child: const Text(
+                                  'OK',
+                                  style: TextStyle(fontSize: 14.0),
+                                ),
                               ),
                             ),
                           ],
@@ -579,14 +576,14 @@ class _ProfilePageScreenState extends State<ProfilePageScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         SingleChildScrollView(
-          child: Container(
+          child: SizedBox(
             height: 50,
             child: TextFormField(
               readOnly: boolvalue,
               controller: formcontroler,
-              cursorColor: Color(0xFF00A4E4),
+              cursorColor: const Color(0xFF00A4E4),
               decoration: InputDecoration(
-                suffixIcon: Icon(Icons.arrow_drop_down_outlined),
+                suffixIcon: const Icon(Icons.arrow_drop_down_outlined),
                 labelText: labeltext,
                 // labelStyle: TextStyle(color: Colors.black),
                 focusedBorder: OutlineInputBorder(

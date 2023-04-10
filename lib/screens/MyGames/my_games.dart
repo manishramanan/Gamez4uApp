@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:games4u/screens/MyGames/leaderboard.dart';
 
 import '../../shared/menu_drawer.dart';
-import 'create_team.dart';
+import 'add_team.dart';
 import 'matches1.dart';
+import 'my_team.dart';
 
+// ignore: must_be_immutable
 class MyGamesPage extends StatelessWidget {
   MyGamesPage({super.key});
 
@@ -54,10 +56,10 @@ class MyGamesPage extends StatelessWidget {
   ];
 
   List<Widget> tabsContent = [
-    Container(child: ProfilePageScreen()),
-    Container(color: Colors.white),
+    const ProfilePageScreen(),
+    const MyTeam(),
     Container(color: Colors.blue),
-    Container(child: MatchesPage()),
+    const MatchesPage(),
     Container(color: Colors.green),
     Container(color: Colors.white),
     Container(color: Colors.cyan),
