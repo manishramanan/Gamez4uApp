@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'package:games4u/model/Homepagemodel.dart';
 import 'package:http/http.dart' as http;
-import '../screens/Academy/Cricket_academy.dart';
 import 'package:games4u/Network/endpoints.dart';
 
 // ignore: must_be_immutable
@@ -36,7 +35,7 @@ class _ExampleOneState extends State<ExampleOne> {
   }
 
   List<Widget> screens = [
-    const CrickAcademyPage(),
+    //const CrickAcademyPage(),
     // const CrickAcademyPage(),
     // const CrickAcademyPage(),
     // const CrickAcademyPage(),
@@ -303,7 +302,7 @@ class _ApiSponsersState extends State<ApiSponsers> {
   }
 
   List<Widget> screens = [
-    const CrickAcademyPage(),
+    //const CrickAcademyPage(),
     // const CrickAcademyPage(),
     // const CrickAcademyPage(),
   ];

@@ -51,41 +51,42 @@ class Userteam {
 }
 
 //post method for add team 
-Addteam addteamFromJson(String str) => Addteam.fromJson(json.decode(str));
 
-String addteamToJson(Addteam data) => json.encode(data.toJson());
+Addteams addteamsFromJson(String str) => Addteams.fromJson(json.decode(str));
 
-class Addteam {
-    Addteam({
-        required this.id,
+String addteamsToJson(Addteams data) => json.encode(data.toJson());
+
+class Addteams {
+    Addteams({
+        this.id,
         this.name,
         this.logoImg,
-        required this.sportId,
+        this.sportId,
         this.extraPlayers,
         this.teamProperties,
-        required this.createdDate,
-        required this.createdBy,
+        this.createdDate,
+        this.createdBy,
         this.updatedDate,
     });
 
-    String id;
+    String? id;
     dynamic name;
     dynamic logoImg;
-    String sportId;
+    String? sportId;
     dynamic extraPlayers;
     dynamic teamProperties;
-    DateTime createdDate;
-    String createdBy;
+    DateTime? createdDate;
+    String? createdBy;
     dynamic updatedDate;
 
-    factory Addteam.fromJson(Map<String, dynamic> json) => Addteam(
+    factory Addteams.fromJson(Map<String, dynamic> json) => Addteams(
         id: json["id"],
         name: json["name"],
         logoImg: json["logoImg"],
         sportId: json["sportId"],
         extraPlayers: json["extraPlayers"],
         teamProperties: json["teamProperties"],
-        createdDate: DateTime.parse(json["createdDate"]),
+        createdDate: json["createdDate"] == null ? null : DateTime.parse(json["createdDate"]),
         createdBy: json["createdBy"],
         updatedDate: json["updatedDate"],
     );
@@ -97,7 +98,7 @@ class Addteam {
         "sportId": sportId,
         "extraPlayers": extraPlayers,
         "teamProperties": teamProperties,
-        "createdDate": createdDate.toIso8601String(),
+        "createdDate": createdDate?.toIso8601String(),
         "createdBy": createdBy,
         "updatedDate": updatedDate,
     };

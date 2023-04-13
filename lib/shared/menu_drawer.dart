@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:games4u/screens/Academy/Cricket_academy.dart';
 import 'package:games4u/screens/MyGames/leaderboard.dart';
 import 'package:games4u/screens/MyGames/my_games.dart';
 import 'package:games4u/screens/Quiz/quizWelcome.dart';
 import 'package:games4u/screens/ScoreCardScreens/youtube.dart';
-import 'package:games4u/screens/StartMatch/Tournament/Tournament1.dart';
 import 'package:games4u/screens/StartMatch/select_text.dart';
 import 'package:games4u/screens/Subscrption/subscription.dart';
+import '../screens/Academy/academy_new1.dart';
+import '../screens/Tournaments/tour1_new.dart';
 import '../screens/homescreen_new.dart';
 import '../screens/login.dart';
 import '../screens/profile_menu.dart/user.dart';
@@ -31,7 +31,7 @@ class MenuDrawer extends StatelessWidget {
             child: Container(
               height: 35,
               width: 35,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 image: DecorationImage(
                   image: AssetImage('images/profilepic.png'),
@@ -43,7 +43,7 @@ class MenuDrawer extends StatelessWidget {
                 child: IconButton(
                   color: Colors.black,
                   onPressed: (() => Navigator.pop(context)),
-                  icon: Icon(
+                  icon: const Icon(
                     Icons.menu,
                     size: 25,
                   ),
@@ -52,11 +52,11 @@ class MenuDrawer extends StatelessWidget {
             ),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.home,
               color: Colors.black,
             ),
-            title: Text('My Home'),
+            title: const Text('My Home'),
             onTap: () {
               Navigator.push(
                 context,
@@ -67,11 +67,11 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.person,
               color: Colors.black,
             ),
-            title: Text('My Account'),
+            title: const Text('My Account'),
             onTap: () {
               Navigator.push(
                 context,
@@ -82,11 +82,11 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               FontAwesomeIcons.gamepad,
               color: Colors.black,
             ),
-            title: Text('My Games'),
+            title: const Text('My Games'),
             onTap: () {
               Navigator.push(
                 context,
@@ -97,33 +97,33 @@ class MenuDrawer extends StatelessWidget {
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.handshake,
               color: Colors.black,
             ),
-            title: Text('Start Match'),
+            title: const Text('Start Match'),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => SelectText(),
+                builder: (context) => const SelectText(),
               ));
             },
           ),
           ExpansionTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.sports_cricket,
               color: Colors.black,
             ),
-            title: Text('Go Live '),
+            title: const Text('Go Live '),
             children: [
               ListTile(
-                title: Text('ScoreBoard'),
+                title: const Text('ScoreBoard'),
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => LeaderPage(),
+                    builder: (context) => const LeaderPage(),
                   ));
                 },
               ),
-              ListTile(
+              const ListTile(
                 title: Text('Streaming'),
               ),
             ],
@@ -131,36 +131,36 @@ class MenuDrawer extends StatelessWidget {
           ListTile(
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => YoutubePage(),
+                builder: (context) => const YoutubePage(),
               ));
             },
-            leading: Icon(
+            leading: const Icon(
               Icons.live_tv_sharp,
               color: Colors.black,
             ),
-            title: Text('Live Score'),
+            title: const Text('Live Score'),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               FontAwesomeIcons.trophy,
               color: Colors.black,
             ),
-            title: Text('My Tournaments'),
+            title: const Text('My Tournaments'),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => TournamentPage(),
+                builder: (context) => const Tour1New(),
               ));
             },
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               FontAwesomeIcons.building,
               color: Colors.black,
             ),
-            title: Text('Academy'),
+            title: const Text('Academy'),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
-                builder: (context) => CrickAcademyPage(),
+                builder: (context) => const AcadNew(),
               ));
             },
           ),
@@ -180,21 +180,21 @@ class MenuDrawer extends StatelessWidget {
           //   ],
           // ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.subscriptions,
               color: Colors.black,
             ),
-            title: Text('Subscription'),
+            title: const Text('Subscription'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => SubPage(),
+                  builder: (context) => const SubPage(),
                 ),
               );
             },
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(
               Icons.videocam,
               color: Colors.black,
@@ -202,25 +202,25 @@ class MenuDrawer extends StatelessWidget {
             title: Text('Videos'),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               FontAwesomeIcons.brain,
               color: Colors.black,
             ),
-            title: Text('Quiz'),
+            title: const Text('Quiz'),
             onTap: () {
               Navigator.of(context).push(MaterialPageRoute(
                 builder: (context) => const QuizWelcome(),
               ));
             },
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(
               Icons.contact_support_outlined,
               color: Colors.black,
             ),
             title: Text('About Us'),
           ),
-          ListTile(
+          const ListTile(
             leading: Icon(
               Icons.phone,
               color: Colors.black,
@@ -228,16 +228,16 @@ class MenuDrawer extends StatelessWidget {
             title: Text('Contact Us'),
           ),
           ListTile(
-            leading: Icon(
+            leading: const Icon(
               Icons.exit_to_app,
               color: Colors.black,
             ),
-            title: Text('Logout'),
+            title: const Text('Logout'),
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LoginScreen(),
+                  builder: (context) => const LoginScreen(),
                 ),
               );
             },
