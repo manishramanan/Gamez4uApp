@@ -1,10 +1,6 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
-
 import 'package:pin_code_fields/pin_code_fields.dart';
-
-import '../Academy/Cricket_academy.dart';
 import '../Welcome/selectgames.dart';
 
 class PinCodeVerificationScreen extends StatefulWidget {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:games4u/screens/MyGames/leaderboard.dart';
-
+import 'package:games4u/screens/MyGames/add.dart';
 import '../../shared/menu_drawer.dart';
-import 'add_team.dart';
 import 'matches1.dart';
 import 'my_team.dart';
 
@@ -56,7 +54,7 @@ class MyGamesPage extends StatelessWidget {
   ];
 
   List<Widget> tabsContent = [
-    const ProfilePageScreen(),
+    const AddNew(),
     const MyTeam(),
     Container(color: Colors.blue),
     const MatchesPage(),

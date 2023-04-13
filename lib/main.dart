@@ -7,9 +7,6 @@ import 'package:games4u/screens/Password%20Change/changepassword.dart';
 import 'package:games4u/screens/PhoneNumber/Verify_phone.dart';
 import 'package:games4u/screens/Quiz/quizquestions.dart';
 import 'package:games4u/screens/ScoreCardScreens/scoredetails.dart';
-import 'package:games4u/screens/StartMatch/Tournament/Tournament1.dart';
-import 'package:games4u/screens/MyGames/add_team.dart';
-import 'package:games4u/screens/StartMatch/Tournament/create_tournament.dart';
 import 'package:games4u/screens/StartMatch/selectA.dart';
 import 'package:games4u/screens/StartMatch/select_text.dart';
 import 'package:games4u/screens/StartMatch/selectplayer.dart';
@@ -38,9 +35,13 @@ import 'package:games4u/screens/ScoreCardScreens/youtube.dart';
 import 'package:games4u/shared/password_update.dart ';
 import 'package:games4u/shared/menu_drawer.dart';
 import 'package:games4u/shared/customform.dart';
+import 'screens/Academy/academy_new1.dart';
+import 'screens/Academy/academy_new2.dart';
 import 'screens/ForgotPassword/otp_mail_new.dart';
-import 'screens/MyGames/add_team_api.dart';
+import 'screens/MyGames/add.dart';
 import 'screens/MyGames/my_team.dart';
+import 'screens/Tournaments/create_tour.dart';
+import 'screens/Tournaments/tour1_new.dart';
 import 'screens/homescreen_new.dart';
 
 void main() {
@@ -52,8 +53,8 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MyGamesPage(),
+    return const MaterialApp(
+      home: LogoScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
